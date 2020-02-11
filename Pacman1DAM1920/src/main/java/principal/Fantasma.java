@@ -22,6 +22,7 @@ public class Fantasma {
     
     //CONSTRUCTORES
     
+    //Prueba
     
     //GETTER
     public boolean isAzul() {
