@@ -20,14 +20,11 @@ public class Bolita extends Elemento {
         this.tipoBola = tipoBola;
     }
 
-    public Bolita(boolean tipoBola) {
+    public Bolita(int x,int y,boolean tipoBola) {
+        super(x,y,'');
         this.tipoBola = tipoBola;
     }
 
-    public Bolita(boolean tipoBola, int x, int y, char s) {
-        super(x, y, s);
-        this.tipoBola = tipoBola;
-    }
     
    
     
