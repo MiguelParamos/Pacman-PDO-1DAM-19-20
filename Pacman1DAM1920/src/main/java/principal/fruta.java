@@ -7,8 +7,8 @@ package principal;
 
 /**
  * Clase que define a las frutas del PacMan.
- *
- * @author Maria y Cristina
+ * @author Maria Sanchez
+ * @author  Cristina Carrillo
  */
 public class fruta {
 
@@ -17,11 +17,10 @@ public class fruta {
     private String tipoFruta;
 
     /**
-     * Constructor de la clase fruta con todos sus datos.
-     *
-     * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta
-     * @param tiempoDesaparicion Tiempo que aparecen y desaparecen las frutas
-     * @param tipoFrutas tipo de fruta que aparece en el laberinto.
+     * Constructor de la clase fruta con todos sus datos.     
+     * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta.
+     * @param tiempoDesaparicion Tiempo que desaparecen las frutas en el laberinto.
+     * @param tipoFrutas tipo de fruta que aparece en el laberinto (cerezas)
      */
     public fruta(int puntosFruta, int tiempoDesaparicion, String tipoFrutas) {
         this.puntosFruta = puntosFruta;
@@ -48,7 +47,7 @@ public class fruta {
 
     /**
      * getter de TiempoDesaparicion     
-     * @return tiempo que permanece la fruta en el laberinto
+     * @return tiempo que desaparece la fruta en el laberinto
      */
     public int getTiempoDesaparicion() {
         return tiempoDesaparicion;
@@ -56,7 +55,7 @@ public class fruta {
 
     /**
      *setter de TiempoDesaparicion
-     * @param tiempoDesaparicion tiempo que permanece la fruta en el laberinto
+     * @param tiempoDesaparicion tiempo que desaparece la fruta en el laberinto
      */
     public void setTiempoDesaparicion(int tiempoDesaparicion) {
         this.tiempoDesaparicion = tiempoDesaparicion;
@@ -64,7 +63,7 @@ public class fruta {
 
     /**
      * getter de tipoFruta
-     * @return  tipo de fruta que aparece en el laberinto, la cereza.
+     * @return   fruta que aparece en el laberinto (cerezas).
      */
     public String getTipoFruta() {
         return tipoFruta;
@@ -72,7 +71,7 @@ public class fruta {
 
     /**
      * setter de tipoFruta
-     * @param tipoFruta  fruta que aparece en el laberinto del PacMan.
+     * @param tipoFruta  fruta que aparece en el laberinto (cerezas).
      */
     public void setTipoFruta(String tipoFruta) {
         this.tipoFruta = tipoFruta;
