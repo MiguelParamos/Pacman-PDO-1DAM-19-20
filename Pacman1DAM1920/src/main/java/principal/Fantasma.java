@@ -74,7 +74,6 @@ public class Fantasma {
     
     //SETTER
 
-    
     public void setAzul(boolean azul) {
         this.azul = azul;
     }
