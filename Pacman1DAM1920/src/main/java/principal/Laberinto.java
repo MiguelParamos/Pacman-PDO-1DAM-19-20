@@ -45,11 +45,11 @@ public class Laberinto {
     }
 
     public Bolita[] getBolita() {
-        return bolita;
+        return bolitas;
     }
 
     public void setBolita(Bolita[] bolita) {
-        this.bolita = bolita;
+        this.bolitas = bolitas;
     }
 
     public Fruta getFruta() {
