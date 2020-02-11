@@ -6,8 +6,9 @@
 package principal;
 
 /**
- *
- * @author cenec
+ * Superclase de los diferentes elemetos como el pacman, la fruta y las bolitas.
+ * @author Francisco
+ * @author Jaime
  */
 public class Elemento {
     private int posX;//Cordenada X de un elemento

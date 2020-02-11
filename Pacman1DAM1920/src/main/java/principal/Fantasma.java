@@ -7,17 +7,17 @@
 package principal;
 
 /**
- *
+ * Clase que representa a fantasma
  * @author salva
  * @author hgonz
  */
 public class Fantasma {
    
     //VARIABLES INTERNAS
-    private boolean azul;
-    private boolean estaVivo;
-    private int velocidad;
-    private char color;
+    private boolean azul;               //Color cuando el Pacman se come una bolita grande
+    private boolean estaVivo;           //Estado del fantasma 
+    private int velocidad;              //La velocidad del fantasma
+    private char color;                 //Color del fantasma, hay 4 tipos de colores
 
     
     //CONSTRUCTORES
