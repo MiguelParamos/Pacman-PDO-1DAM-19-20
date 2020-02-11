@@ -41,7 +41,7 @@ public class Bolita extends Elemento {
      * @param tipoBola Recibe por parámetros un boolean
      */
     public Bolita(int x, int y, boolean tipoBola) {
-        super(x, y, '•');
+        super(x, y, '•');//Simbolo bola grande O
         this.tipoBola = tipoBola;
 
     }
