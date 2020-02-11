@@ -14,15 +14,29 @@ package principal;
 public class Fantasma {
    
     //VARIABLES INTERNAS
-    private boolean azul;               //Color cuando el Pacman se come una bolita grande
+    private boolean azul;                   //Color cuando el Pacman se come una bolita grande
     private boolean estaVivo;           //Estado del fantasma 
-    private int velocidad;              //La velocidad del fantasma
-    private char color;                 //Color del fantasma, hay 4 tipos de colores
+    private int velocidad;                 //La velocidad del fantasma
+    private char color;                      //Color del fantasma, hay 4 tipos de colores
 
     
     //CONSTRUCTORES
     
-    //Prueba
+        /**
+     * Constructor de la clase fantasma con todos sus datos.
+     *
+     * @param azul Color que se activa si Pacman come una bolita grande
+     * @param estaVivo Estado del fantasma
+     * @param velocidad velocidad del fantasma
+     * @param color color del fantasma
+     */
+    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color) {
+        this.azul = azul;
+        this.estaVivo = estaVivo;
+        this.velocidad = velocidad;
+        this.color = color;
+    }
+    
     
     //GETTER
     public boolean isAzul() {
