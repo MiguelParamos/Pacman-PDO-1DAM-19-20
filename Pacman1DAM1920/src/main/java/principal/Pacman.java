@@ -10,11 +10,11 @@ package principal;
  * @author cenec
  */
 public class Pacman extends Elemento{
-    private int velocidad;
-    private boolean estaVivo;
-    private byte direccionQueMira;
-    private int numeroVidas;
-    private int puntuacion;
+    private int velocidad;  //Velocidad de Pacman
+    private boolean estaVivo;   //Ver si esta vivo o no
+    private byte direccionQueMira;      //Direccion a la que mira Pacman
+    private int numeroVidas;        //Numero de vidas de Pacman
+    private int puntuacion;     //Puntos que consigue Pacman
     
     /**
      * Getter de la variable velocidad
