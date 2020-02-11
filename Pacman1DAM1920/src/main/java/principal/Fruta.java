@@ -21,7 +21,7 @@ public class Fruta extends Elemento {
      *
      * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta
      * @param tiempoDesaparicion Tiempo que aparecen y desaparecen las frutas
-     * @param tipoFrutas tipo de fruta que aparece en el laberinto.
+     * @param tipoFruta tipo de fruta que aparece en el laberinto.
      * @param posX posicion x
      * @param posY posicion y 
      */
