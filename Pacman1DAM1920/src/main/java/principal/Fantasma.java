@@ -19,7 +19,7 @@ public class Fantasma extends Elemento {
     private int velocidad;                                 //La velocidad del fantasma
     private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
     private final int tiempoEspera=10;          //Tiempo que espera el fantasma después de morir
-
+    private char simboloAzul; //simbolo que representa el simbolo cuando huye del pacman
   
     
     //CONSTRUCTORES
@@ -34,13 +34,15 @@ public class Fantasma extends Elemento {
      * @param posX posición x del fantasma 
      * @param posY posición y del fantasma
      * @param simbolo simbolo que representa al fantasma
+     *  @param simboloAzul simbolo que representa al fantasma de color azul, cuando pacman puede comerle
      */
-    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color, int posX, int posY, char simbolo) {
+    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color, int posX, int posY, char simbolo,char simboloAzul) {
         super(posX, posY, simbolo);
         this.azul = azul;
         this.estaVivo = estaVivo;
         this.velocidad = velocidad;
         this.color = color;
+        this.simboloAzul=simboloAzul;
     }
     
     
@@ -77,14 +79,19 @@ public class Fantasma extends Elemento {
     public char getColor() {
         return color;
     }
-    
-    
+    /**
+     * Getter de la variable simboloAzul
+     * @return simbolo char cuando el fantasma se vuelve azul
+     */
+    public char getSimboloAzul() {
+        return simboloAzul;
+    }
     
     //SETTER
 
     /**
      * Setter de la variable azul
-     * @param azul es el color del fantasma cuando el pacam se come una bolita grande
+     * @param azul color del fantasma cuando el pacam se come una bolita grande
      */
     public void setAzul(boolean azul) {
         this.azul = azul;
@@ -116,6 +123,13 @@ public class Fantasma extends Elemento {
      */
     public void setColor(char color) {
         this.color = color;
+    }
+     /**
+     * Setter de la variable simboloAzul
+     * @param simboloAzul char del fantasma cuando se vuelve azul
+     */
+    public void setSimboloAzul(char simboloAzul) {
+        this.color = simboloAzul;
     }
 
     //FUNCIONES
