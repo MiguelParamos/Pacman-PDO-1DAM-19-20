@@ -9,7 +9,8 @@ package principal;
  * Esta clase se encarga de definir los parámetros de la bola, ya sea grande o
  * pequeña.
  *
- * @author Adrian y Javier
+ * @author Adrian
+ * @author Javier
  */
 
 public class Bolita extends Elemento {

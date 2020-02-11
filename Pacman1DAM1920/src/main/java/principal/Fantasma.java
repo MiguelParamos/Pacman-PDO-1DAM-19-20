@@ -121,11 +121,11 @@ public class Fantasma {
     }
 
     public void moverse() {
-
+            
     }
 
     public void morir() {
-
+        
     }
 
     public void sonidoMoverse() {
