@@ -74,18 +74,34 @@ public class Fantasma {
     
     //SETTER
 
+    /**
+     * Setter de la variable azul
+     * @param variable azul
+     */
     public void setAzul(boolean azul) {
         this.azul = azul;
     }
 
+    /**
+     * Setter de la variable estaVivo
+     * @param variable estaVivo
+     */
     public void setEstaVivo(boolean estaVivo) {
         this.estaVivo = estaVivo;
     }
 
+    /**
+     * Setter de la variable velocidad
+     * @param variable velocidad
+     */
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 
+    /**
+     * Setter de la variable color
+     * @param variable color
+     */
     public void setColor(char color) {
         this.color = color;
     }

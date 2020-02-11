@@ -14,7 +14,7 @@ package principal;
 
 public class Bolita extends Elemento {
 
-    private boolean tipoBola;
+    private boolean tipoBola;//Variable para saber el tipo de bola que es
 
     /**
      * Getter de la clase bolita, para la variable tipoBola.
@@ -42,7 +42,7 @@ public class Bolita extends Elemento {
      * @param tipoBola Recibe por parámetros un boolean
      */
     public Bolita(int x, int y, boolean tipoBola) {
-        super(x, y, '•');
+        super(x, y, '•');//Simbolo bola grande O
         this.tipoBola = tipoBola;
 
     }
