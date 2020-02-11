@@ -7,14 +7,15 @@ package principal;
 
 /**
  *  Clase que representa a Pacman
- * @author cenec
+ * @author Rafa Carrion
+ * @author Kevin Rääk
  */
 public class Pacman extends Elemento{
-    private int velocidad;  //Velocidad de Pacman
-    private boolean estaVivo;   //Ver si esta vivo o no
-    private byte direccionQueMira;      //Direccion a la que mira Pacman
-    private int numeroVidas;        //Numero de vidas de Pacman
-    private int puntuacion;     //Puntos que consigue Pacman
+    private int velocidad = 1;  //Velocidad de Pacman 
+    private boolean estaVivo = true;   //Ver si esta vivo o no
+    private byte direccionQueMira;      //Direccion a la que mira Pacman 2 Abajo 4 Izquierda 6 derecha 8 Arriba
+    private int numeroVidas = 3;        //Numero de vidas de Pacman 
+    private int puntuacion = 0;     //Puntos que consigue Pacman 0
     
     /**
      * Getter de la variable velocidad
@@ -104,8 +105,11 @@ public class Pacman extends Elemento{
      * 
      * @param posX posicion X del pacman
      * @param posY posicion Y del pacman
+     * @param pacman char que representa al pacman
      */
-    public Pacman (int posX, int posY){
+    public Pacman (int posX, int posY,boolean pacman){
+            super(posX,posY,'¢');
+            this.estaVivo = pacman;
             
     }
     /**
@@ -124,9 +128,10 @@ public class Pacman extends Elemento{
     
     /**
      * Funcion para cuando Pacman se choca con un fantasma
+     * @param f se refiere al fantasma
      */
     
-    public void chocarConFantasma(){
+    public void chocarConFantasma(Fantasma f){
         
     }
     
