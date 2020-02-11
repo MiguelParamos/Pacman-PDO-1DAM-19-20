@@ -10,11 +10,13 @@ package principal;
  *
  * @author Maria y Cristina
  */
-public class fruta {
+public class Fruta extends Elemento {
 
     private int puntosFruta;
     private int tiempoDesaparicion;
     private String tipoFruta;
+    private int posX;//Cordenada X de la fruta
+    private int posY;//Cordenada Y de la fruta
 
     /**
      * Constructor de la clase fruta con todos sus datos.
@@ -22,11 +24,15 @@ public class fruta {
      * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta
      * @param tiempoDesaparicion Tiempo que aparecen y desaparecen las frutas
      * @param tipoFrutas tipo de fruta que aparece en el laberinto.
+     * @param posX posicion x
+     * @param posY posicion y 
      */
-    public fruta(int puntosFruta, int tiempoDesaparicion, String tipoFrutas) {
+    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) {   
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
-        this.tipoFruta = tipoFrutas;
+        this.tipoFruta = tipoFruta;
+        this.posX = posX;
+        this.posY = posY;
     }
 
     /**
@@ -81,7 +87,7 @@ public class fruta {
     public int darPuntos(){
         return 0;
     }
-    public boolean desaparecer(){
-        return true;
+    public void desaparecer(){
+       
     }
 }
