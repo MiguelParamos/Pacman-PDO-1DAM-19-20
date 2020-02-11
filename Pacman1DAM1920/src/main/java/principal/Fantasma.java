@@ -22,7 +22,21 @@ public class Fantasma {
     
     //CONSTRUCTORES
     
-    //Prueba
+        /**
+     * Constructor de la clase fantasma con todos sus datos.
+     *
+     * @param azul Color que se activa si Pacman come una bolita grande
+     * @param estaVivo Estado del fantasma
+     * @param velocidad velocidad del fantasma
+     * @param color color del fantasma
+     */
+    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color) {
+        this.azul = azul;
+        this.estaVivo = estaVivo;
+        this.velocidad = velocidad;
+        this.color = color;
+    }
+    
     
     //GETTER
     public boolean isAzul() {
