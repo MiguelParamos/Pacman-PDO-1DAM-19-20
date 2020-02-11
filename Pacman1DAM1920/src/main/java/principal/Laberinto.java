@@ -6,44 +6,22 @@
 package principal;
 
 /**
- *
+ * Clase que representa al laberinto del Pacman
+ * 
  * @author Alvaro Lopez
  * @author Alvaro Nuñez
  */
 public class Laberinto {
     
-    
-    private int largo;
-    private int ancho;
-
-    public int getLargo() {
-        return largo;
-    }
-
-    public void setLargo(int largo) {
-        this.largo = largo;
-    }
-
-    public int getAncho() {
-        return ancho;
-    }
-
-    public void setAncho(int ancho) {
-        this.ancho = ancho;
-    }
-
-    public Laberinto(int largo, int ancho) {
-        this.largo = 30;
-        this.ancho = 30;
-    }
-    
-    
-    public void InicializarMapa() {
-        String mapa[][] = new String[largo][ancho];
-    }
-    
+    private String mapa[][]; // 
+    private Fantasma[] fantasma;
+    private Pacman pacman;
+    private Bolita[] bolita;
+    private Fruta fruta;
     
     
     
     
 }
+    
+    
