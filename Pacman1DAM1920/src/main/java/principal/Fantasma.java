@@ -14,10 +14,10 @@ package principal;
 public class Fantasma {
    
     //VARIABLES INTERNAS
-    private boolean azul;               //Color cuando el Pacman se come una bolita grande
+    private boolean azul;                   //Color cuando el Pacman se come una bolita grande
     private boolean estaVivo;           //Estado del fantasma 
-    private int velocidad;              //La velocidad del fantasma
-    private char color;                 //Color del fantasma, hay 4 tipos de colores
+    private int velocidad;                 //La velocidad del fantasma
+    private char color;                      //Color del fantasma, hay 4 tipos de colores
 
     
     //CONSTRUCTORES
