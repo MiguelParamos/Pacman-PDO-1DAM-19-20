@@ -12,6 +12,7 @@ package principal;
 public class Bolita extends Elemento {
     private boolean tipoBola;
 
+    
     public boolean isTipoBola() {
         return tipoBola;
     }
@@ -23,9 +24,10 @@ public class Bolita extends Elemento {
     public Bolita(int x,int y,boolean tipoBola) {
         super(x,y,'•');
         this.tipoBola = tipoBola;
+        
     }
 
-    
+    public int sumarPuntos()
    
     
 }
