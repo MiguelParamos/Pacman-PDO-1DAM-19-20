@@ -6,15 +6,15 @@
 package principal;
 
 /**
- *
+ *  Clase que representa a Pacman
  * @author cenec
  */
 public class Pacman extends Elemento{
-    private int velocidad;
-    private boolean estaVivo;
-    private byte direccionQueMira;
-    private int numeroVidas;
-    private int puntuacion;
+    private int velocidad;  //Velocidad de Pacman
+    private boolean estaVivo;   //Ver si esta vivo o no
+    private byte direccionQueMira;      //Direccion a la que mira Pacman
+    private int numeroVidas;        //Numero de vidas de Pacman
+    private int puntuacion;     //Puntos que consigue Pacman
     
     /**
      * Getter de la variable velocidad
@@ -94,5 +94,78 @@ public class Pacman extends Elemento{
      */
     public void setPuntuacion(int p){
         this.puntuacion = p;
+    }
+    
+    
+    //FUNCIONES
+    
+    /**
+     *  Constructor de Pacman con sus posicion
+     * 
+     * @param posX posicion X del pacman
+     * @param posY posicion Y del pacman
+     */
+    public Pacman (int posX, int posY){
+            
+    }
+    /**
+     *  Constructor de Pacman
+     */
+    public void Pacman(){
+        
+    }
+    /**
+     *  Funcion para el movimiento de Pacman
+     * @param direccion por donde se mueve Pacman
+     */
+    public void moverse(byte direccion){
+        
+    }
+    
+    /**
+     * Funcion para cuando Pacman se choca con un fantasma
+     */
+    
+    public void chocarConFantasma(){
+        
+    }
+    
+        /**
+     * Funcion para cuando Pacman se come una bolita
+     */
+    public void chocarConBolita(){
+        
+    }
+        /**
+     * Funcion para cuando Pacman se come una fruta
+     */
+    public void chocarConFruta(){
+        
+    }
+        /**
+     * Sonido que hace Pacman
+     */
+    public void sonidoPakuPaku(){
+        
+    }
+    /**
+     * Funcion al morir Pacman
+     */
+    public void morir(){
+        
+    }
+    
+    /**
+     * Funcion al conseguir una bolita con poderes
+     */
+    public void powerUp(){
+        
+    }
+    /**
+     *  Funcion para contar los puntos
+     * @param cantidad numero de puntos que consigue Pacman
+     */
+    public void sumarPuntos(int cantidad){
+        
     }
 }

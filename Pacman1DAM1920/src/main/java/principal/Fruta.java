@@ -7,25 +7,32 @@ package principal;
 
 /**
  * Clase que define a las frutas del PacMan.
- * @author Maria Sanchez
- * @author  Cristina Carrillo
+ *
+ * @author Maria y Cristina
  */
-public class fruta {
+public class Fruta extends Elemento {
 
     private int puntosFruta;
     private int tiempoDesaparicion;
     private String tipoFruta;
+    private int posX;//Cordenada X de la fruta
+    private int posY;//Cordenada Y de la fruta
 
     /**
-     * Constructor de la clase fruta con todos sus datos.     
-     * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta.
-     * @param tiempoDesaparicion Tiempo que desaparecen las frutas en el laberinto.
-     * @param tipoFrutas tipo de fruta que aparece en el laberinto (cerezas)
+     * Constructor de la clase fruta con todos sus datos.
+     *
+     * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta
+     * @param tiempoDesaparicion Tiempo que aparecen y desaparecen las frutas
+     * @param tipoFrutas tipo de fruta que aparece en el laberinto.
+     * @param posX posicion x
+     * @param posY posicion y 
      */
-    public fruta(int puntosFruta, int tiempoDesaparicion, String tipoFrutas) {
+    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) {   
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
-        this.tipoFruta = tipoFrutas;
+        this.tipoFruta = tipoFruta;
+        this.posX = posX;
+        this.posY = posY;
     }
 
     /**
@@ -47,7 +54,7 @@ public class fruta {
 
     /**
      * getter de TiempoDesaparicion     
-     * @return tiempo que desaparece la fruta en el laberinto
+     * @return tiempo que permanece la fruta en el laberinto
      */
     public int getTiempoDesaparicion() {
         return tiempoDesaparicion;
@@ -55,7 +62,7 @@ public class fruta {
 
     /**
      *setter de TiempoDesaparicion
-     * @param tiempoDesaparicion tiempo que desaparece la fruta en el laberinto
+     * @param tiempoDesaparicion tiempo que permanece la fruta en el laberinto
      */
     public void setTiempoDesaparicion(int tiempoDesaparicion) {
         this.tiempoDesaparicion = tiempoDesaparicion;
@@ -63,7 +70,7 @@ public class fruta {
 
     /**
      * getter de tipoFruta
-     * @return   fruta que aparece en el laberinto (cerezas).
+     * @return  tipo de fruta que aparece en el laberinto, la cereza.
      */
     public String getTipoFruta() {
         return tipoFruta;
@@ -71,17 +78,23 @@ public class fruta {
 
     /**
      * setter de tipoFruta
-     * @param tipoFruta  fruta que aparece en el laberinto (cerezas).
+     * @param tipoFruta  fruta que aparece en el laberinto del PacMan.
      */
     public void setTipoFruta(String tipoFruta) {
         this.tipoFruta = tipoFruta;
     }
-
+    
     /**
-     * 
+     * Funcion darPuntos
+     * @return int de puntos
      */
-    public void darPuntos() {
-
+    public int darPuntos(){
+        return 0;
     }
-
+    /**
+     * Funcion que hace desaparecer a la fruta
+     */
+    public void desaparecer(){
+       
+    }
 }
