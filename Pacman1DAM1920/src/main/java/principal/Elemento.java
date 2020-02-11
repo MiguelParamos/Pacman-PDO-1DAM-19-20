@@ -14,6 +14,9 @@ public class Elemento {
     private int posY;//Cordenada Y de un elemento
     private char simbolo;//Simbolo del elemento
     
+    /**
+     * Constructor elemento
+     */
     public Elemento(){
         
     }
