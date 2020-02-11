@@ -30,9 +30,12 @@ public class Fantasma extends Elemento {
      * @param estaVivo Estado del fantasma
      * @param velocidad velocidad del fantasma
      * @param color color del fantasma
-
+     * @param posX posición x del fantasma 
+     * @param posY posición y del fantasma
+     * @param simbolo simbolo que representa al fantasma
      */
-    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color) {
+    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color, int posX, int posY, char simbolo) {
+        super(posX, posY, simbolo);
         this.azul = azul;
         this.estaVivo = estaVivo;
         this.velocidad = velocidad;
