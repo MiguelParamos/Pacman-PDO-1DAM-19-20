@@ -22,7 +22,7 @@ public class Fantasma {
     
     //CONSTRUCTORES
     
-        /**
+    /**
      * Constructor de la clase fantasma con todos sus datos.
      *
      * @param azul Color que se activa si Pacman come una bolita grande
