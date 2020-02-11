@@ -41,7 +41,7 @@ public class Fantasma {
     //GETTER
     /**
      * Getter de la variable azul
-     * @return variable azul
+     * @return variable azul 
      */
     public boolean isAzul() {
         return azul;
@@ -76,7 +76,7 @@ public class Fantasma {
 
     /**
      * Setter de la variable azul
-     * @param azul
+     * @param azul es el color del fantasma cuando el pacam se come una bolita grande
      */
     public void setAzul(boolean azul) {
         this.azul = azul;
@@ -84,7 +84,7 @@ public class Fantasma {
 
     /**
      * Setter de la variable estaVivo
-     * @param estaVivo
+     * @param estaVivo es el estado del fantasma cuando no es comido 
      */
     public void setEstaVivo(boolean estaVivo) {
         this.estaVivo = estaVivo;
@@ -92,7 +92,7 @@ public class Fantasma {
 
     /**
      * Setter de la variable velocidad
-     * @param velocidad
+     * @param velocidad es el atributo del fantasma a lo largo de la partida
      */
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
@@ -100,7 +100,7 @@ public class Fantasma {
 
     /**
      * Setter de la variable color
-     * @param color
+     * @param color es el que pertence a cada uno de los fantasmas, cada uno tiene un color diferente
      */
     public void setColor(char color) {
         this.color = color;
