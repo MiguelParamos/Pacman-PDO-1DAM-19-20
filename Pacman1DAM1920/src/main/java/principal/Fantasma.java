@@ -11,13 +11,14 @@ package principal;
  * @author salva
  * @author hgonz
  */
-public class Fantasma {
+public class Fantasma extends Elemento {
    
     //VARIABLES INTERNAS
-    private boolean azul;                   //Color cuando el Pacman se come una bolita grande
-    private boolean estaVivo;           //Estado del fantasma 
-    private int velocidad;                 //La velocidad del fantasma
-    private char color;                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
+    private boolean azul;                                   //Color cuando el Pacman se come una bolita grande
+    private boolean estaVivo;                           //Estado del fantasma 
+    private int velocidad;                                 //La velocidad del fantasma
+    private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
+    private final int tiempoEspera = 10;          //Tiempo que espera el fantasma después de morir
 
     
     //CONSTRUCTORES
@@ -29,8 +30,12 @@ public class Fantasma {
      * @param estaVivo Estado del fantasma
      * @param velocidad velocidad del fantasma
      * @param color color del fantasma
+     * @param posX posición x del fantasma 
+     * @param posY posición y del fantasma
+     * @param simbolo simbolo que representa al fantasma
      */
-    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color) {
+    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color, int posX, int posY, char simbolo) {
+        super(posX, posY, simbolo);
         this.azul = azul;
         this.estaVivo = estaVivo;
         this.velocidad = velocidad;
@@ -41,7 +46,7 @@ public class Fantasma {
     //GETTER
     /**
      * Getter de la variable azul
-     * @return variable azul
+     * @return variable azul 
      */
     public boolean isAzul() {
         return azul;
@@ -72,11 +77,13 @@ public class Fantasma {
         return color;
     }
     
+    
+    
     //SETTER
 
     /**
      * Setter de la variable azul
-     * @param azul
+     * @param azul es el color del fantasma cuando el pacam se come una bolita grande
      */
     public void setAzul(boolean azul) {
         this.azul = azul;
@@ -84,7 +91,7 @@ public class Fantasma {
 
     /**
      * Setter de la variable estaVivo
-     * @param estaVivo
+     * @param estaVivo es el estado del fantasma cuando no es comido 
      */
     public void setEstaVivo(boolean estaVivo) {
         this.estaVivo = estaVivo;
@@ -92,7 +99,7 @@ public class Fantasma {
 
     /**
      * Setter de la variable velocidad
-     * @param velocidad
+     * @param velocidad es el atributo del fantasma a lo largo de la partida
      */
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
@@ -100,38 +107,60 @@ public class Fantasma {
 
     /**
      * Setter de la variable color
-     * @param color
+     * @param color es el que pertence a cada uno de los fantasmas, cada uno tiene un color diferente
      */
     public void setColor(char color) {
         this.color = color;
     }
-    
-    
+
     //FUNCIONES
     /**
+     * Función que representa la posición del Fantasma
      * 
-     * @param posX
-     * @param posY 
+     * @param posX posición x en el laberinto
+     * @param posY posición y en el laberinto
+     * @param simbolo representa el simbolo del Fantasma
      */
-    public Fantasma(int posX, int posY) {
+    public Fantasma(int posX, int posY, char simbolo) {
+        super(posX, posY, '≡'); 
     }
 
+    /**
+     * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
+     */
     public void chocarConPacman() {
 
     }
 
-    public void moverse() {
-            
-    }
+    /**
+     * Función que representa el movimiento del fantasma
+     * @return devuelve un array con la dirección del movimiento del fantasma.
+     */
+    public int[] moverse() {
 
-    public void morir() {
+        int[] array = new int[0];
         
+        return array;
     }
 
+    /**
+     * Función que se ejecuta si el fantasma está muerto. Si es así, volverá a la posición de inicio y tendrá un tiempo de espera para volver a salir.
+     * @param tiempoEspera variable que representa el tiempo que espera el fantasma cuando muere
+     */
+    public void morir(int tiempoEspera) {
+
+    }
+
+    /**
+     * Función que representa el sonido del movimiento del Fantasma
+     */
     public void sonidoMoverse() {
 
     }
 
+    /**
+     * Función que representa el sonido cuando muere el Fantasma
+     */
     public void sonidoMorir() {
 
     }
