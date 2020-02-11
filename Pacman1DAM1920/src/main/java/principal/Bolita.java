@@ -9,6 +9,9 @@ package principal;
  *
  * @author cenec
  */
-public class Bolita {
+public class Bolita extends Elemento {
+    private boolean tipoBola;
     
+   
+    public final void setTipoBola(boolean tipoBola)
 }
