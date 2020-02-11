@@ -15,8 +15,6 @@ public class Fruta extends Elemento {
     private int puntosFruta;
     private int tiempoDesaparicion;
     private String tipoFruta;
-    private int posX;//Cordenada X de la fruta
-    private int posY;//Cordenada Y de la fruta
 
     /**
      * Constructor de la clase fruta con todos sus datos.
@@ -27,12 +25,11 @@ public class Fruta extends Elemento {
      * @param posX posicion x
      * @param posY posicion y 
      */
-    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) {   
+    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) { 
+        super(0,0,'✰');
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
         this.tipoFruta = tipoFruta;
-        this.posX = posX;
-        this.posY = posY;
     }
 
     /**
