@@ -10,9 +10,9 @@ package principal;
  * @author cenec
  */
 public class Elemento {
-    private int posX;
-    private int posY;
-    private char simbolo;
+    private int posX;//Cordenada X de un elemento
+    private int posY;//Cordenada Y de un elemento
+    private char simbolo;//Simbolo del elemento
     
     public Elemento(){
         
