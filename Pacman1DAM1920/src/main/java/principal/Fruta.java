@@ -10,7 +10,7 @@ package principal;
  *
  * @author Maria y Cristina
  */
-public class fruta {
+public class Fruta {
    private int puntosFruta;
    private int tiempoDesaparicion;
    private String tipoFruta;
@@ -21,7 +21,7 @@ public class fruta {
     * @param tiempoDesaparicion
     * @param tipoFrutas 
     */
-    public fruta(int puntosFruta, int tiempoDesaparicion, String tipoFrutas) {
+    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFrutas) {
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
         this.tipoFruta = tipoFrutas;
@@ -59,8 +59,10 @@ public class fruta {
         this.tipoFruta = tipoFruta;
     }
     
-    public void darPuntos(){
-        
+    public int darPuntos(){
+        return 0;
     }
-   
+    public boolean desaparecer(){
+        return true;
+    }
 }
