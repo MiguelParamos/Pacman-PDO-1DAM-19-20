@@ -7,14 +7,14 @@ package principal;
 
 /**
  * Clase que define a las frutas del PacMan.
- *
- * @author Maria y Cristina
+ *@author Maria Sanchez
+ * @author  Cristina Carrillo
  */
 public class Fruta extends Elemento {
 
-    private int puntosFruta;
-    private int tiempoDesaparicion;
-    private String tipoFruta;
+    private int puntosFruta; //puntos de las frutas
+    private int tiempoDesaparicion; //tiempo que desaparece la fruta del laberinto.
+    private String tipoFruta; //frutas del PacMan (cerezas)
     private int posX;//Cordenada X de la fruta
     private int posY;//Cordenada Y de la fruta
 
