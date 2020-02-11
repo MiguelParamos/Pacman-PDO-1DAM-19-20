@@ -18,7 +18,6 @@ public class Fantasma extends Elemento {
     private boolean estaVivo;                           //Estado del fantasma 
     private int velocidad;                                 //La velocidad del fantasma
     private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
-    private char simboloNormal;                     //Simbolo que representa al fantasma cuando pacman no come ninguna bolita especial.
     private final int tiempoEspera = 10;          //Tiempo que espera el fantasma después de morir
 
     
@@ -74,14 +73,6 @@ public class Fantasma extends Elemento {
     public char getColor() {
         return color;
     }
-
-    /**
-     * Getter de la variable simboloNormal
-     * @return variable simboloNormal
-     */
-    public char getSimboloNormal() {
-        return simboloNormal;
-    }
     
     
     
@@ -119,17 +110,6 @@ public class Fantasma extends Elemento {
         this.color = color;
     }
 
-    /**
-     * Setter de la variable simboloNormal
-     * @param simboloNormal representa al fantasma cuando pacman no come ninguna bolita especial
-     */
-    public void setSimboloNormal(char simboloNormal) {
-        this.simboloNormal = simboloNormal;
-    }
-    
-    
-    
-    
     //FUNCIONES
     /**
      * Función que representa la posición del Fantasma
@@ -140,7 +120,6 @@ public class Fantasma extends Elemento {
      */
     public Fantasma(int posX, int posY, char simbolo) {
         super(posX, posY, '≡'); 
-        this.simboloNormal = simbolo;
     }
 
     /**
