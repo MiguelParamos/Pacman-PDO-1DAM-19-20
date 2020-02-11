@@ -11,7 +11,24 @@ package principal;
  */
 public class Bolita extends Elemento {
     private boolean tipoBola;
+
+    public boolean isTipoBola() {
+        return tipoBola;
+    }
+
+    public void setTipoBola(boolean tipoBola) {
+        this.tipoBola = tipoBola;
+    }
+
+    public Bolita(boolean tipoBola) {
+        this.tipoBola = tipoBola;
+    }
+
+    public Bolita(boolean tipoBola, int x, int y, char s) {
+        super(x, y, s);
+        this.tipoBola = tipoBola;
+    }
     
    
-    public final void setTipoBola(boolean tipoBola)
+    
 }
