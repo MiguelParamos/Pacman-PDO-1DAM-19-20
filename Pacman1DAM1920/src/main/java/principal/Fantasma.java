@@ -18,8 +18,9 @@ public class Fantasma extends Elemento {
     private boolean estaVivo;                           //Estado del fantasma 
     private int velocidad;                                 //La velocidad del fantasma
     private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
-    private final int tiempoEspera = 10;          //Tiempo que espera el fantasma después de morir
+    private final int tiempoEspera=10;          //Tiempo que espera el fantasma después de morir
 
+  
     
     //CONSTRUCTORES
     
@@ -97,6 +98,10 @@ public class Fantasma extends Elemento {
         this.estaVivo = estaVivo;
     }
 
+      public int getTiempoEspera() {
+        return tiempoEspera;
+    }
+
     /**
      * Setter de la variable velocidad
      * @param velocidad es el atributo del fantasma a lo largo de la partida
@@ -122,7 +127,7 @@ public class Fantasma extends Elemento {
      * @param simbolo representa el simbolo del Fantasma
      */
     public Fantasma(int posX, int posY, char simbolo) {
-        super(posX, posY, '≡'); 
+        super(posX, posY, simbolo);
     }
 
     /**
@@ -164,5 +169,5 @@ public class Fantasma extends Elemento {
     public void sonidoMorir() {
 
     }
-
+   
 }

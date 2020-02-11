@@ -26,7 +26,7 @@ public class Fruta extends Elemento {
      * @param posY posicion y 
      */
     public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) { 
-        super(0,0,'✰');
+        super(posX,posY,'✰');
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
         this.tipoFruta = tipoFruta;
