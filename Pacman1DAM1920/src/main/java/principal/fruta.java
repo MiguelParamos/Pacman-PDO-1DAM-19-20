@@ -11,22 +11,20 @@ package principal;
  * @author Maria y Cristina
  */
 public class fruta {
+   private int puntosFruta;
+   private int tiempoDesaparicion;
+   private String tipoFruta;
 
-    private int puntosFruta;
-    private int tiempoDesaparicion;
-    private String tipoFrutas;
-
-    /**
-     * Constructor de la clase fruta con todos sus datos.
-     *
-     * @param puntosFruta putos que da la fruta al PacMan
-     * @param tiempoDesaparicion tiempo que aparece y desaparece la fruta.
-     * @param tipoFrutas tipo de fruta que aparece en el mapa.
-     */
+   /**
+    * Constructor de la clase fruta con todos sus datos.  
+    * @param puntosFruta  
+    * @param tiempoDesaparicion
+    * @param tipoFrutas 
+    */
     public fruta(int puntosFruta, int tiempoDesaparicion, String tipoFrutas) {
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
-        this.tipoFrutas = tipoFrutas;
+        this.tipoFruta = tipoFrutas;
     }
 
     /**
@@ -53,12 +51,16 @@ public class fruta {
         this.tiempoDesaparicion = tiempoDesaparicion;
     }
 
-    public String getTipoFrutas() {
-        return tipoFrutas;
+    public String getTipoFruta() {
+        return tipoFruta;
     }
 
-    public void setTipoFrutas(String tipoFrutas) {
-        this.tipoFrutas = tipoFrutas;
+    public void setTipoFruta(String tipoFruta) {
+        this.tipoFruta = tipoFruta;
     }
-
+    
+    public void darPuntos(){
+        
+    }
+   
 }
