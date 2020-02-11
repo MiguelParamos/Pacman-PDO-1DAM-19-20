@@ -17,7 +17,7 @@ public class Fantasma {
     private boolean azul;                   //Color cuando el Pacman se come una bolita grande
     private boolean estaVivo;           //Estado del fantasma 
     private int velocidad;                 //La velocidad del fantasma
-    private char color;                      //Color del fantasma, hay 4 tipos de colores
+    private char color;                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
 
     
     //CONSTRUCTORES
@@ -39,19 +39,35 @@ public class Fantasma {
     
     
     //GETTER
+    /**
+     * Getter de la variable azul
+     * @return variable azul
+     */
     public boolean isAzul() {
         return azul;
 
     }
 
+    /**
+     * Getter de la variable estaVivo
+     * @return variable estaVivo
+     */
     public boolean isEstaVivo() {
         return estaVivo;
     }
 
+    /**
+     * Getter de la variable velocidad
+     * @return variable velocidad
+     */
     public int getVelocidad() {
         return velocidad;
     }
 
+    /**
+     * Getter de la variable color
+     * @return variable color
+     */
     public char getColor() {
         return color;
     }
@@ -92,6 +108,11 @@ public class Fantasma {
     
     
     //FUNCIONES
+    /**
+     * 
+     * @param posX
+     * @param posY 
+     */
     public Fantasma(int posX, int posY) {
     }
 

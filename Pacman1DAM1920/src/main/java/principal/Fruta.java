@@ -84,9 +84,16 @@ public class Fruta extends Elemento {
         this.tipoFruta = tipoFruta;
     }
     
+    /**
+     * Funcion darPuntos
+     * @return int de puntos
+     */
     public int darPuntos(){
         return 0;
     }
+    /**
+     * Funcion que hace desaparecer a la fruta
+     */
     public void desaparecer(){
        
     }
