@@ -7,6 +7,7 @@ package principal;
 
 /**
  * Clase que define a las frutas del PacMan
+ *
  * @author Maria y Cristina
  */
 public class fruta {
@@ -26,10 +27,18 @@ public class fruta {
         this.tipoFruta = tipoFrutas;
     }
 
+    /**
+     * getter de puntosFruta     
+     * @return puntos
+     */
     public int getPuntosFruta() {
         return puntosFruta;
     }
 
+    /**
+     * setter de puntosFruta    
+     * @param puntosFruta puntos que da al PacMan cuando se come la fruta
+     */
     public void setPuntosFruta(int puntosFruta) {
         this.puntosFruta = puntosFruta;
     }
