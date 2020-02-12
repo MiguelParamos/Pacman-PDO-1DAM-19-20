@@ -39,7 +39,7 @@ public class Fantasma extends Personaje {
         this.azul = azul;
         this.color = color;
         this.simboloAzul = simboloAzul;
-        this.tiempoEspera=tiempoEspera;  
+        this.tiempoEspera=tiempoEspera;
     }
     
     
@@ -149,4 +149,31 @@ public class Fantasma extends Personaje {
 
     }
    
+    /**
+     * Hace que el fantasma muera y lo devuelve a su posicion inicial según el color
+     * @param f Fantasma que muere
+     */
+    public void morir(Fantasma f){
+        f.setEstaVivo(false);
+        //Rojo
+        if (f.color == 'R') {
+           //f.setPosX();
+           //f.setPosY();
+        }
+        //Celeste
+        if (f.color == 'C') {
+            //f.setPosX();
+           //f.setPosY();
+        }
+        //Amarillo
+        if (f.color == 'A') {
+            //f.setPosX();
+           //f.setPosY();
+        }
+        //Morado
+        if (f.color == 'M') {
+            //f.setPosX();
+           //f.setPosY();
+        }     
+    } 
 }
