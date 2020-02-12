@@ -7,7 +7,7 @@ package principal;
 
 /**
  *
- * @author cenec
+ * @author Adrian
  */
 public class Personaje extends Elemento{
     
