@@ -16,7 +16,7 @@ public class Fantasma extends Personaje {
     //VARIABLES INTERNAS
     private boolean azul;                                   //Color cuando el Pacman se come una bolita grande
     private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
-    private final int tiempoEspera;          //Tiempo que espera el fantasma después de morir   El tiempo de espera es 10
+    private final int tiempoEspera;          //Tiempo que espera el fantasma después de morir   El tiempo de espera es 10 int tiempoEspera=10;
     private char simboloAzul; //simbolo que representa el simbolo cuando huye del pacman
   
     
@@ -24,7 +24,7 @@ public class Fantasma extends Personaje {
     
     /**
      * Constructor de la clase fantasma con todos sus datos.
-     *
+     * @param tiempoEspera turnos en que tarda en aparecer el fantasma
      * @param azul Color que se activa si Pacman come una bolita grande
      * @param estaVivo Estado del fantasma
      * @param velocidad velocidad del fantasma
@@ -32,7 +32,7 @@ public class Fantasma extends Personaje {
      * @param posX posición x del fantasma 
      * @param posY posición y del fantasma
      * @param simbolo simbolo que representa al fantasma
-     *  @param simboloAzul simbolo que representa al fantasma de color azul, cuando pacman puede comerle
+     * @param simboloAzul simbolo que representa al fantasma de color azul, cuando pacman puede comerle
      */
     public Fantasma(int tiempoEspera,boolean azul, char color, char simboloAzul, boolean estaVivo, int velocidad, int posX, int posY, char simbolo) {
         super(estaVivo, velocidad, posX, posY, simbolo);
