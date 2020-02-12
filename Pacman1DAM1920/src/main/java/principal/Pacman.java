@@ -5,6 +5,8 @@
  */
 package principal;
 
+import java.util.Scanner;
+
 /**
  *  Clase que representa a Pacman
  * @author Rafa Carrion
@@ -103,9 +105,29 @@ public class Pacman extends Personaje{
     }
     /**
      *  Funcion para el movimiento de Pacman
+     * @param p pacman
+     * @param f fantasma
+     * @param b bolita
+     * @param fr fruta
      * @param direccion por donde se mueve Pacman
      */
-    public void moverse(byte direccion) {
+    public void moverse(Pacman p,Fantasma f, Bolita b,Fruta fr, byte direccion) {
+
+            
+            //Falta el movimiento y el power UP
+        
+            if(p.getPosX()==b.getPosX()&& p.getPosY()==b.getPosY()){ //CUANDO ENCUENTRA UNA BOLITA
+                p.chocarConBolita();           
+            }
+        
+            if(p.getPosX()==f.getPosX()&& p.getPosY()==f.getPosY()){ //CUANDO ENCUENTRA UN FANTASMA
+                p.chocarConFantasma(f);
+                f.chocarConPacman();    
+            }
+               if(p.getPosX()==fr.getPosX()&& p.getPosY()==fr.getPosY()){ //CUANDO ENCUENTRA UNA FRUTA
+                p.chocarConFruta();   
+                p.sumarPuntos(puntuacion);
+            }
     }
     
     /**
