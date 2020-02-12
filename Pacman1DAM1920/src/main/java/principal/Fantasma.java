@@ -109,11 +109,15 @@ public class Fantasma extends Personaje {
        super(posX, posY, simbolo);     
     } Si se quiere usar esta hay que pasarle al su per 5 parametros    super(estaVivo, velocidad, posx, posy, simbolo)*/
 
-    /**
-     * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
-     */
-    public void chocarConPacman() {
-
+/**
+ * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
+ * @param azul 
+ */
+    public void chocarConPacman(boolean azul) {
+        if (azul) {
+            morir(tiempoEspera);
+        }
+        
     }
 
     /**
