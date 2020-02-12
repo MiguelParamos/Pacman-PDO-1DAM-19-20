@@ -11,14 +11,12 @@ package principal;
  * @author salva
  * @author hgonz
  */
-public class Fantasma extends Elemento {
+public class Fantasma extends Personaje {
    
     //VARIABLES INTERNAS
     private boolean azul;                                   //Color cuando el Pacman se come una bolita grande
-    private boolean estaVivo;                           //Estado del fantasma 
-    private int velocidad;                                 //La velocidad del fantasma
     private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
-    private final int tiempoEspera=10;          //Tiempo que espera el fantasma después de morir
+    private final int tiempoEspera;          //Tiempo que espera el fantasma después de morir   El tiempo de espera es 10
     private char simboloAzul; //simbolo que representa el simbolo cuando huye del pacman
   
     
@@ -36,14 +34,14 @@ public class Fantasma extends Elemento {
      * @param simbolo simbolo que representa al fantasma
      *  @param simboloAzul simbolo que representa al fantasma de color azul, cuando pacman puede comerle
      */
-    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color, int posX, int posY, char simbolo,char simboloAzul) {
-        super(posX, posY, simbolo);
+    public Fantasma(int tiempoEspera,boolean azul, char color, char simboloAzul, boolean estaVivo, int velocidad, int posX, int posY, char simbolo) {
+        super(estaVivo, velocidad, posX, posY, simbolo);
         this.azul = azul;
-        this.estaVivo = estaVivo;
-        this.velocidad = velocidad;
         this.color = color;
-        this.simboloAzul=simboloAzul;
+        this.simboloAzul = simboloAzul;
+        this.tiempoEspera=tiempoEspera;  
     }
+    
     
     
     //GETTER
@@ -54,22 +52,6 @@ public class Fantasma extends Elemento {
     public boolean isAzul() {
         return azul;
 
-    }
-
-    /**
-     * Getter de la variable estaVivo
-     * @return variable estaVivo
-     */
-    public boolean isEstaVivo() {
-        return estaVivo;
-    }
-
-    /**
-     * Getter de la variable velocidad
-     * @return variable velocidad
-     */
-    public int getVelocidad() {
-        return velocidad;
     }
 
     /**
@@ -97,26 +79,9 @@ public class Fantasma extends Elemento {
         this.azul = azul;
     }
 
-    /**
-     * Setter de la variable estaVivo
-     * @param estaVivo es el estado del fantasma cuando no es comido 
-     */
-    public void setEstaVivo(boolean estaVivo) {
-        this.estaVivo = estaVivo;
-    }
-
       public int getTiempoEspera() {
         return tiempoEspera;
     }
-
-    /**
-     * Setter de la variable velocidad
-     * @param velocidad es el atributo del fantasma a lo largo de la partida
-     */
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
-
     /**
      * Setter de la variable color
      * @param color es el que pertence a cada uno de los fantasmas, cada uno tiene un color diferente
@@ -140,9 +105,9 @@ public class Fantasma extends Elemento {
      * @param posY posición y en el laberinto
      * @param simbolo representa el simbolo del Fantasma
      */
-    public Fantasma(int posX, int posY, char simbolo) {
-        super(posX, posY, simbolo);
-    }
+   /* public Fantasma(int posX, int posY, char simbolo) {
+       super(posX, posY, simbolo);     
+    } Si se quiere usar esta hay que pasarle al su per 5 parametros    super(estaVivo, velocidad, posx, posy, simbolo)*/
 
     /**
      * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.

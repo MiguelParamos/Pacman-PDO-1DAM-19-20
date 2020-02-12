@@ -41,5 +41,5 @@ public class Personaje extends Elemento{
         this.estaVivo = estaVivo;
         this.velocidad = velocidad;
     }  
-    
+
 }

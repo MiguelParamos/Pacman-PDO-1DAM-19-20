@@ -10,28 +10,12 @@ package principal;
  * @author Rafa Carrion
  * @author Kevin Rääk
  */
-public class Pacman extends Elemento{
-    private int velocidad = 1;  //Velocidad de Pacman 
-    private boolean estaVivo = true;   //Ver si esta vivo o no
+public class Pacman extends Personaje{
     private byte direccionQueMira;      //Direccion a la que mira Pacman 2 Abajo 4 Izquierda 6 derecha 8 Arriba
     private int numeroVidas = 3;        //Numero de vidas de Pacman 
     private int puntuacion = 0;     //Puntos que consigue Pacman 0
     
-    /**
-     * Getter de la variable velocidad
-     * @return 
-     */
-    public int getVelocidad(){
-        return this.velocidad;
-    }
     
-    /**
-     * Getter de la variable estaVivo
-     * @return 
-     */
-    public boolean getEstaVivo(){
-        return this.estaVivo;
-    }
     
     /**
      * Getter de la variable direccionQueMira
@@ -57,21 +41,6 @@ public class Pacman extends Elemento{
         return this.puntuacion;
     }
     
-    /**
-     * Setter de velocidad
-     * @param v velocidad
-     */
-    public void setVelocidad(int v){
-        this.velocidad = v;
-    }
-    
-    /**
-     * Setter de boolean estaVivo
-     * @param v Bolean de si está vivo
-     */
-    public void setEstaVivo(boolean v){
-        this.estaVivo = v;
-    }
     /**
      * 
      * Setter de direccion que mira
@@ -107,23 +76,36 @@ public class Pacman extends Elemento{
      * @param posY posicion Y del pacman
      * @param pacman char que representa al pacman
      */
-    public Pacman (int posX, int posY,boolean pacman){
+   /* public Pacman (int posX, int posY,boolean pacman){
             super(posX,posY,'¢');
             this.estaVivo = pacman;
             
-    }
+    }*/
+    
+    
     /**
-     *  Constructor de Pacman
+     * Constructor de la clase Pac-Man con todos sus datos
+     * 
+     * @param numeroVidas
+     * @param puntuacion
+     * @param direccionQueMira
+     * @param estaVivo
+     * @param velocidad
+     * @param x
+     * @param y
+     * @param s 
      */
-    public void Pacman(){
-        
+    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s){
+        super(estaVivo, velocidad, x, y, s);
+        this.direccionQueMira = direccionQueMira;
+        this.numeroVidas = numeroVidas;    
+        this.puntuacion = puntuacion; 
     }
     /**
      *  Funcion para el movimiento de Pacman
      * @param direccion por donde se mueve Pacman
      */
-    public void moverse(byte direccion){
-        
+    public void moverse(byte direccion) {
     }
     
     /**
