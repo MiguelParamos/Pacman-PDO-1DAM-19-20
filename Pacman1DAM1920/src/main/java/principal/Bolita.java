@@ -12,7 +12,6 @@ package principal;
  * @author Adrian
  * @author Javier
  */
-
 public class Bolita extends Elemento {
 
     private boolean tipoBola;//Variable para saber el tipo de bola: true-> grande, false->pequeña
@@ -53,21 +52,29 @@ public class Bolita extends Elemento {
      * @return
      */
     public int sumarPuntos() {
-        //TODO implementar la función
-        return 0;
+        int puntos = 0;
+        if (tipoBola == false) {
+            puntos++;
+        } else {
+            puntos += 10;
+        }
+
+        return puntos;
     }
 
     /**
      * Funcion que elimina las bolas del laberinto
      */
     public void desaparecer() {
+        setPosX(-1);
+        setPosY(-1);
 
     }
-    
+
     /**
      * Esta función no devuelve nada y llama a sumarPuntos y Desaparecer.
      */
-    public void chocarConBolita(){
+    public void chocarConBolita() {
         sumarPuntos();
         desaparecer();
     }
