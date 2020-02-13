@@ -64,4 +64,12 @@ public class Bolita extends Elemento {
     public void desaparecer() {
 
     }
+    
+    /**
+     * Esta función no devuelve nada y llama a sumarPuntos y Desaparecer.
+     */
+    public void chocarConBolita(){
+        sumarPuntos();
+        desaparecer();
+    }
 }
