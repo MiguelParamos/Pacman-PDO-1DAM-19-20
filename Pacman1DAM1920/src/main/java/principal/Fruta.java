@@ -86,7 +86,7 @@ public class Fruta extends Elemento {
      * @return int de puntos
      */
     public int darPuntos(){
-        return 0;
+        return 200; 
     }
     /**
      * Funcion que hace desaparecer a la fruta
