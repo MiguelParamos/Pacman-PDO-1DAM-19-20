@@ -49,17 +49,10 @@ public class Bolita extends Elemento {
     /**
      * Funcion de que suma puntos
      *
-     * @return
+     * @return 1 punto si es pequeña, 10 si es grande
      */
     public int sumarPuntos() {
-        int puntos = 0;
-        if (tipoBola == false) {
-            puntos++;
-        } else {
-            puntos += 10;
-        }
-
-        return puntos;
+       return (tipoBola?10:1);
     }
 
     /**
@@ -68,7 +61,6 @@ public class Bolita extends Elemento {
     public void desaparecer() {
         setPosX(-1);
         setPosY(-1);
-
     }
 
     /**

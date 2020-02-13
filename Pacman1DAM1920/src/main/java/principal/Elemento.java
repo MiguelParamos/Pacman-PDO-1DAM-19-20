@@ -43,7 +43,7 @@ public class Elemento {
  * Setter de posX
  * @param posX Coordenada X 
  */
-    public void setPosX(int posX) {
+    public final void setPosX(int posX) {
         this.posX = posX;
     }
 /**
@@ -59,7 +59,7 @@ public class Elemento {
  * Setter de posY
  * @param posY Coordena Y
  */
-    public void setPosY(int posY) {
+    public final void setPosY(int posY) {
         this.posY = posY;
     }
     

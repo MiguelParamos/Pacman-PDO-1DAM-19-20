@@ -15,7 +15,7 @@ public class Fantasma extends Personaje {
    
     //VARIABLES INTERNAS
     private boolean azul;                                   //Color cuando el Pacman se come una bolita grande
-    private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
+    private char color;                                      //Color del fantasma, hay 4 colores ,puede ser: r->rojo, a->amarillo, p->rosa, b->azul
     private final int tiempoEspera;          //Tiempo que espera el fantasma después de morir   El tiempo de espera es 10 int tiempoEspera=10;
     private char simboloAzul; //simbolo que representa el simbolo cuando huye del pacman
   
@@ -28,18 +28,55 @@ public class Fantasma extends Personaje {
      * @param azul Color que se activa si Pacman come una bolita grande
      * @param estaVivo Estado del fantasma
      * @param velocidad velocidad del fantasma
-     * @param color color del fantasma
+     * @param color color del fantasma, puede ser: r->rojo, a->amarillo, p->rosa, b->azul
      * @param posX posición x del fantasma 
      * @param posY posición y del fantasma
      * @param simbolo simbolo que representa al fantasma
      * @param simboloAzul simbolo que representa al fantasma de color azul, cuando pacman puede comerle
      */
-    public Fantasma(int tiempoEspera,boolean azul, char color, char simboloAzul, boolean estaVivo, int velocidad, int posX, int posY, char simbolo) {
+    public Fantasma(int tiempoEspera,boolean azul, char color,  boolean estaVivo, int velocidad, int posX, int posY, char simbolo) {
         super(estaVivo, velocidad, posX, posY, simbolo);
         this.azul = azul;
         this.color = color;
-        this.simboloAzul = simboloAzul;
+        this.simboloAzul = '▼';
         this.tiempoEspera=tiempoEspera;
+    }
+    
+    /**
+     * Constructor de fantasma que pone todos sus datos menos el color predefinidos
+     * @param color color del fantasma, puede ser: r->rojo, a->amarillo, p->rosa, b->azul
+     */
+    public Fantasma(char color){
+        //Primer parámetro true porque un fantasma siempre empieza vivo
+        //Segundo parámetro 1 porque fantasma siempre empieza con velocidad 1
+        //No puedo poner nada por encima de super, y tengo que decidir la posición, por tanto por ahora la voy a poner a -1,-1 , y luego la cambio con los setter
+        super(true,1,-1,-1,'▲');
+        this.azul=false;
+        this.color=color;
+        this.simboloAzul = '▼';
+        this.tiempoEspera=10;
+        switch(color){
+            case 'r': //Rojo
+                this.setPosX(9);
+                this.setPosY(9);
+                break;
+            case 'y': //Amarillo
+                this.setPosX(9);
+                this.setPosY(10);
+                break;
+            case 'b': //Azul
+                this.setPosX(10);
+                this.setPosY(9);
+            break;
+            case 'p': //pink
+                this.setPosX(10);
+                this.setPosY(10);
+                break;
+            default:
+                System.err.println("ERROR: COLOR INCORRECTO");
+                break;
+        }
+        
     }
     
     
@@ -75,7 +112,7 @@ public class Fantasma extends Personaje {
      * Setter de la variable azul
      * @param azul color del fantasma cuando el pacam se come una bolita grande
      */
-    public void setAzul(boolean azul) {
+    public final void setAzul(boolean azul) {
         this.azul = azul;
     }
 
@@ -84,9 +121,9 @@ public class Fantasma extends Personaje {
     }
     /**
      * Setter de la variable color
-     * @param color es el que pertence a cada uno de los fantasmas, cada uno tiene un color diferente
+     * @param color es el que pertence a cada uno de los fantasmas, cada uno tiene un color diferente, puede ser: r->rojo, a->amarillo, p->rosa, b->azul
      */
-    public void setColor(char color) {
+    public final void setColor(char color) {
         this.color = color;
     }
      /**
@@ -111,11 +148,10 @@ public class Fantasma extends Personaje {
 
 /**
  * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
- * @param azul variable que es true si pacman come una bolita grande
  */
-    public void chocarConPacman(boolean azul) {
+    public void chocarConPacman() {
         if (azul) {
-            morir(tiempoEspera);
+            morir();
         }
         
     }
@@ -131,13 +167,6 @@ public class Fantasma extends Personaje {
         return array;
     }
 
-    /**
-     * Función que se ejecuta si el fantasma está muerto. Si es así, volverá a la posición de inicio y tendrá un tiempo de espera para volver a salir.
-     * @param tiempoEspera variable que representa el tiempo que espera el fantasma cuando muere
-     */
-    public void morir(int tiempoEspera) {
-
-    }
 
     /**
      * Función que representa el sonido del movimiento del Fantasma
@@ -157,27 +186,28 @@ public class Fantasma extends Personaje {
      * Hace que el fantasma muera y lo devuelve a su posicion inicial según el color
      * @param f Fantasma que muere
      */
-    public void morir(Fantasma f){
-        f.setEstaVivo(false);
-        //Rojo
-        if (f.color == 'R') {
-           //f.setPosX();
-           //f.setPosY();
+    public void morir(){
+        this.setEstaVivo(false);
+         switch(this.color){
+            case 'r': //Rojo
+                this.setPosX(9);
+                this.setPosY(9);
+                break;
+            case 'y': //Amarillo
+                this.setPosX(9);
+                this.setPosY(10);
+                break;
+            case 'b': //Azul
+                this.setPosX(10);
+                this.setPosY(9);
+            break;
+            case 'p': //pink
+                this.setPosX(10);
+                this.setPosY(10);
+                break;
+            default:
+                System.err.println("ERROR: COLOR INCORRECTO");
+                break;
         }
-        //Celeste
-        if (f.color == 'C') {
-            //f.setPosX();
-           //f.setPosY();
-        }
-        //Amarillo
-        if (f.color == 'A') {
-            //f.setPosX();
-           //f.setPosY();
-        }
-        //Morado
-        if (f.color == 'M') {
-            //f.setPosX();
-           //f.setPosY();
-        }     
     } 
 }

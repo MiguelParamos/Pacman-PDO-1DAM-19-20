@@ -143,9 +143,11 @@ public class Pacman extends Personaje{
     
         /**
      * Funcion para cuando Pacman se come una bolita
+     * @param b bolita que se come
      */
-    public void chocarConBolita(){
-        
+    public void chocarConBolita(Bolita b){
+        this.puntuacion+=b.sumarPuntos();
+        b.desaparecer();
     }
         /**
      * Funcion para cuando Pacman se come una fruta
