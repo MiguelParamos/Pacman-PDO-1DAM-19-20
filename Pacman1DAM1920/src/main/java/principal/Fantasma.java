@@ -11,34 +11,37 @@ package principal;
  * @author salva
  * @author hgonz
  */
-public class Fantasma extends Elemento {
+public class Fantasma extends Personaje {
    
     //VARIABLES INTERNAS
     private boolean azul;                                   //Color cuando el Pacman se come una bolita grande
-    private boolean estaVivo;                           //Estado del fantasma 
-    private int velocidad;                                 //La velocidad del fantasma
     private char color;                                      //Color del fantasma, hay 4 colores (Rojo, Celeste, Amarillo, Morado)
-    private char simboloNormal;                     //Simbolo que representa al fantasma cuando pacman no come ninguna bolita especial.
-    private final int tiempoEspera = 10;          //Tiempo que espera el fantasma después de morir
-
+    private final int tiempoEspera;          //Tiempo que espera el fantasma después de morir   El tiempo de espera es 10 int tiempoEspera=10;
+    private char simboloAzul; //simbolo que representa el simbolo cuando huye del pacman
+  
     
     //CONSTRUCTORES
     
     /**
      * Constructor de la clase fantasma con todos sus datos.
-     *
+     * @param tiempoEspera turnos en que tarda en aparecer el fantasma
      * @param azul Color que se activa si Pacman come una bolita grande
      * @param estaVivo Estado del fantasma
      * @param velocidad velocidad del fantasma
      * @param color color del fantasma
-
+     * @param posX posición x del fantasma 
+     * @param posY posición y del fantasma
+     * @param simbolo simbolo que representa al fantasma
+     * @param simboloAzul simbolo que representa al fantasma de color azul, cuando pacman puede comerle
      */
-    public Fantasma(boolean azul, boolean estaVivo, int velocidad, char color) {
+    public Fantasma(int tiempoEspera,boolean azul, char color, char simboloAzul, boolean estaVivo, int velocidad, int posX, int posY, char simbolo) {
+        super(estaVivo, velocidad, posX, posY, simbolo);
         this.azul = azul;
-        this.estaVivo = estaVivo;
-        this.velocidad = velocidad;
         this.color = color;
+        this.simboloAzul = simboloAzul;
+        this.tiempoEspera=tiempoEspera;
     }
+    
     
     
     //GETTER
@@ -52,65 +55,33 @@ public class Fantasma extends Elemento {
     }
 
     /**
-     * Getter de la variable estaVivo
-     * @return variable estaVivo
-     */
-    public boolean isEstaVivo() {
-        return estaVivo;
-    }
-
-    /**
-     * Getter de la variable velocidad
-     * @return variable velocidad
-     */
-    public int getVelocidad() {
-        return velocidad;
-    }
-
-    /**
      * Getter de la variable color
      * @return variable color
      */
     public char getColor() {
         return color;
     }
-
     /**
-     * Getter de la variable simboloNormal
-     * @return variable simboloNormal
+     * Getter de la variable simboloAzul
+     * @return simbolo char cuando el fantasma se vuelve azul
      */
-    public char getSimboloNormal() {
-        return simboloNormal;
+    public char getSimboloAzul() {
+        return simboloAzul;
     }
-    
-    
     
     //SETTER
 
     /**
      * Setter de la variable azul
-     * @param azul es el color del fantasma cuando el pacam se come una bolita grande
+     * @param azul color del fantasma cuando el pacam se come una bolita grande
      */
     public void setAzul(boolean azul) {
         this.azul = azul;
     }
 
-    /**
-     * Setter de la variable estaVivo
-     * @param estaVivo es el estado del fantasma cuando no es comido 
-     */
-    public void setEstaVivo(boolean estaVivo) {
-        this.estaVivo = estaVivo;
+      public int getTiempoEspera() {
+        return tiempoEspera;
     }
-
-    /**
-     * Setter de la variable velocidad
-     * @param velocidad es el atributo del fantasma a lo largo de la partida
-     */
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
-
     /**
      * Setter de la variable color
      * @param color es el que pertence a cada uno de los fantasmas, cada uno tiene un color diferente
@@ -118,18 +89,14 @@ public class Fantasma extends Elemento {
     public void setColor(char color) {
         this.color = color;
     }
-
-    /**
-     * Setter de la variable simboloNormal
-     * @param simboloNormal representa al fantasma cuando pacman no come ninguna bolita especial
+     /**
+     * Setter de la variable simboloAzul
+     * @param simboloAzul char del fantasma cuando se vuelve azul
      */
-    public void setSimboloNormal(char simboloNormal) {
-        this.simboloNormal = simboloNormal;
+    public void setSimboloAzul(char simboloAzul) {
+        this.color = simboloAzul;
     }
-    
-    
-    
-    
+
     //FUNCIONES
     /**
      * Función que representa la posición del Fantasma
@@ -138,16 +105,19 @@ public class Fantasma extends Elemento {
      * @param posY posición y en el laberinto
      * @param simbolo representa el simbolo del Fantasma
      */
-    public Fantasma(int posX, int posY, char simbolo) {
-        super(posX, posY, '≡'); 
-        this.simboloNormal = simbolo;
-    }
+   /* public Fantasma(int posX, int posY, char simbolo) {
+       super(posX, posY, simbolo);     
+    } Si se quiere usar esta hay que pasarle al su per 5 parametros    super(estaVivo, velocidad, posx, posy, simbolo)*/
 
-    /**
-     * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
-     */
-    public void chocarConPacman() {
-
+/**
+ * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
+ * @param azul variable que es true si pacman come una bolita grande
+ */
+    public void chocarConPacman(boolean azul) {
+        if (azul) {
+            morir(tiempoEspera);
+        }
+        
     }
 
     /**
@@ -182,5 +152,32 @@ public class Fantasma extends Elemento {
     public void sonidoMorir() {
 
     }
-
+   
+    /**
+     * Hace que el fantasma muera y lo devuelve a su posicion inicial según el color
+     * @param f Fantasma que muere
+     */
+    public void morir(Fantasma f){
+        f.setEstaVivo(false);
+        //Rojo
+        if (f.color == 'R') {
+           //f.setPosX();
+           //f.setPosY();
+        }
+        //Celeste
+        if (f.color == 'C') {
+            //f.setPosX();
+           //f.setPosY();
+        }
+        //Amarillo
+        if (f.color == 'A') {
+            //f.setPosX();
+           //f.setPosY();
+        }
+        //Morado
+        if (f.color == 'M') {
+            //f.setPosX();
+           //f.setPosY();
+        }     
+    } 
 }

@@ -5,32 +5,19 @@
  */
 package principal;
 
+import java.util.Scanner;
+
 /**
  *  Clase que representa a Pacman
- * @author cenec
+ * @author Rafa Carrion
+ * @author Kevin Rääk
  */
-public class Pacman extends Elemento{
-    private int velocidad;  //Velocidad de Pacman
-    private boolean estaVivo;   //Ver si esta vivo o no
-    private byte direccionQueMira;      //Direccion a la que mira Pacman
-    private int numeroVidas;        //Numero de vidas de Pacman
-    private int puntuacion;     //Puntos que consigue Pacman
+public class Pacman extends Personaje{
+    private byte direccionQueMira;      //Direccion a la que mira Pacman 2 Abajo 4 Izquierda 6 derecha 8 Arriba
+    private int numeroVidas = 3;        //Numero de vidas de Pacman 
+    private int puntuacion = 0;     //Puntos que consigue Pacman 0
     
-    /**
-     * Getter de la variable velocidad
-     * @return 
-     */
-    public int getVelocidad(){
-        return this.velocidad;
-    }
     
-    /**
-     * Getter de la variable estaVivo
-     * @return 
-     */
-    public boolean getEstaVivo(){
-        return this.estaVivo;
-    }
     
     /**
      * Getter de la variable direccionQueMira
@@ -57,21 +44,6 @@ public class Pacman extends Elemento{
         return this.puntuacion;
     }
     
-    /**
-     * Setter de velocidad
-     * @param v velocidad
-     */
-    public void setVelocidad(int v){
-        this.velocidad = v;
-    }
-    
-    /**
-     * Setter de boolean estaVivo
-     * @param v Bolean de si está vivo
-     */
-    public void setEstaVivo(boolean v){
-        this.estaVivo = v;
-    }
     /**
      * 
      * Setter de direccion que mira
@@ -105,6 +77,7 @@ public class Pacman extends Elemento{
      *  
      * @param posX posicion X del pacman 
      * @param posY posicion Y del pacman
+     * @param pacman char que representa al pacman
      */
     public Pacman (int posX, int posY){
         //Genera la posicion aleatoria X
@@ -119,21 +92,67 @@ public class Pacman extends Elemento{
         
         
         
+   /* public Pacman (int posX, int posY,boolean pacman){
+            super(posX,posY,'¢');
+            this.estaVivo = pacman;
+            
+    }*/
+    
+    
+    /**
+     * Constructor de la clase Pac-Man con todos sus datos
+     * 
+     * @param numeroVidas
+     * @param puntuacion
+     * @param direccionQueMira
+     * @param estaVivo
+     * @param velocidad
+     * @param x
+     * @param y
+     * @param s 
+     */
+    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s){
+        super(estaVivo, velocidad, x, y, s);
+        this.direccionQueMira = direccionQueMira;
+        this.numeroVidas = numeroVidas;    
+        this.puntuacion = puntuacion; 
     }
     /**
      *  Funcion para el movimiento de Pacman
+     * @param p pacman
+     * @param f fantasma
+     * @param b bolita
+     * @param fr fruta
      * @param direccion por donde se mueve Pacman
      */
-    public void moverse(byte direccion){
+    public void moverse(Pacman p,Fantasma f, Bolita b,Fruta fr, byte direccion) {
+
+            
+            //Falta el movimiento y el power UP
         
+            if(p.getPosX()==b.getPosX()&& p.getPosY()==b.getPosY()){ //CUANDO ENCUENTRA UNA BOLITA
+                p.chocarConBolita();           
+            }
+        
+            if(p.getPosX()==f.getPosX()&& p.getPosY()==f.getPosY()){ //CUANDO ENCUENTRA UN FANTASMA
+                p.chocarConFantasma(f);
+                f.chocarConPacman();    
+            }
+               if(p.getPosX()==fr.getPosX()&& p.getPosY()==fr.getPosY()){ //CUANDO ENCUENTRA UNA FRUTA
+                p.chocarConFruta();   
+                p.sumarPuntos(puntuacion);
+            }
     }
     
     /**
      * Funcion para cuando Pacman se choca con un fantasma
+     * @param f se refiere al fantasma
      */
     
-    public void chocarConFantasma(){
-        
+    public void chocarConFantasma(Fantasma f){
+        if (!f.isAzul()) {
+            this.morir();
+        }
     }
     
         /**

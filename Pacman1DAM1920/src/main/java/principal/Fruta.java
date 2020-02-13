@@ -26,7 +26,7 @@ public class Fruta extends Elemento {
      * @param posY posicion y 
      */
     public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) { 
-        super(0,0,'✰');
+        super(posX,posY,'✰');
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
         this.tipoFruta = tipoFruta;
@@ -83,15 +83,16 @@ public class Fruta extends Elemento {
     
     /**
      * Funcion darPuntos
-     * @return int de puntos
+     * @return int de puntos. Siempre da 200 puntos.
      */
     public int darPuntos(){
-        return 0;
+        return 200; 
     }
     /**
      * Funcion que hace desaparecer a la fruta
      */
     public void desaparecer(){
-       
+       setPosY(-1);
+       setPosX(-1);
     }
 }
