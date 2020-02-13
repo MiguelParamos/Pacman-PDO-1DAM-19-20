@@ -14,7 +14,7 @@ package principal;
  */
 public class Bolita extends Elemento {
 
-    private boolean tipoBola;//Variable para saber el tipo de bola que es
+    private boolean tipoBola;//Variable para saber el tipo de bola: true-> grande, false->pequeña
 
     /**
      * Getter de la clase bolita, para la variable tipoBola.
@@ -28,7 +28,7 @@ public class Bolita extends Elemento {
     /**
      * Setter de la clase bolita, para la variable tipoBola.
      *
-     * @param tipoBola Recibe por parámetros un boolean
+     * @param tipoBola Recibe por parámetros un boolean: true-> grande,false->pequeña
      */
     public void setTipoBola(boolean tipoBola) {
         this.tipoBola = tipoBola;
@@ -39,12 +39,11 @@ public class Bolita extends Elemento {
      *
      * @param x Recibe la posicion del eje x
      * @param y Recibe la posicion del eje y
-     * @param tipoBola Recibe por parámetros un boolean
+     * @param tipoBola Recibe por parámetros un boolean:true-> grande, false->pequeña
      */
     public Bolita(int x, int y, boolean tipoBola) {
-        super(x, y, '•');//Simbolo bola grande O
+        super(x, y, (tipoBola?'●':'•'));//Simbolo bola grande O
         this.tipoBola = tipoBola;
-
     }
 
     /**

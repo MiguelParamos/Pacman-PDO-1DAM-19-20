@@ -111,7 +111,7 @@ public class Fantasma extends Personaje {
 
 /**
  * Representa el choque entre pacman y el fantasma. Pacman gana si la variable azul es true y Fantasma gana si la variable azul es false.
- * @param azul 
+ * @param azul variable que es true si pacman come una bolita grande
  */
     public void chocarConPacman(boolean azul) {
         if (azul) {
