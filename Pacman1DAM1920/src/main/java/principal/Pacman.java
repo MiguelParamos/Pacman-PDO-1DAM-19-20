@@ -32,6 +32,7 @@ public class Pacman extends Personaje{
      * @return 
      */
     public int getNumeroVidas(){
+            
         return this.numeroVidas;
     }
     
@@ -72,12 +73,25 @@ public class Pacman extends Personaje{
     //FUNCIONES
     
     /**
-     *  Constructor de Pacman con sus posicion
-     * 
-     * @param posX posicion X del pacman
+     *  Constructor de Pacman con sus posicion generada aleatoriamente
+     *  
+     * @param posX posicion X del pacman 
      * @param posY posicion Y del pacman
      * @param pacman char que representa al pacman
      */
+    public Pacman (int posX, int posY){
+        //Genera la posicion aleatoria X
+        int posicionIncialX = Math.random()*getMapa().length();
+        //Genera la posicion aleatoria Y
+        int posicionIncialY = Math.random()*getMapa()[0].length();
+    }
+    /**
+     *  Constructor de Pacman
+     */
+    public void Pacman(){
+        
+        
+        
    /* public Pacman (int posX, int posY,boolean pacman){
             super(posX,posY,'¢');
             this.estaVivo = pacman;
@@ -162,10 +176,13 @@ public class Pacman extends Personaje{
         
     }
     /**
-     * Funcion al morir Pacman
+     * Funcion al morir Pacman resta una vida, y vuelve al pacman a la posición inicial
+     *
      */
     public void morir(){
-        
+        this.numeroVidas--;
+        this.posX = this.posicionInicialX;
+        this.posY = this.posicionInicialY;
     }
     
     /**
