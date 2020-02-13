@@ -136,7 +136,9 @@ public class Pacman extends Personaje{
      */
     
     public void chocarConFantasma(Fantasma f){
-        
+        if (!f.isAzul()) {
+            this.morir();
+        }
     }
     
         /**
