@@ -66,7 +66,8 @@ public class Elemento {
     
 /**
  * Getter de simbolo
- * @return Un char que representa el simbolo
+
+* @return Un char que representa el simbolo
  */
     public char getSimbolo() {
         return simbolo;
