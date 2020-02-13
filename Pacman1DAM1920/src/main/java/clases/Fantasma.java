@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package principal;
+package clases;
 
 /**
  * Clase que representa a fantasma

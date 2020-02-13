@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package clases;
 
 /**
  * Esta clase se encarga de definir los parámetros de la bola, ya sea grande o
@@ -61,13 +61,5 @@ public class Bolita extends Elemento {
     public void desaparecer() {
         setPosX(-1);
         setPosY(-1);
-    }
-
-    /**
-     * Esta función no devuelve nada y llama a sumarPuntos y Desaparecer.
-     */
-    public void chocarConBolita() {
-        sumarPuntos();
-        desaparecer();
     }
 }

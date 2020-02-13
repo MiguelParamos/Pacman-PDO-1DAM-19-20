@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package clases;
 
 /**
  * Clase que representa al laberinto del Pacman
@@ -75,7 +75,7 @@ public class Laberinto {
         return false;
     }
 
-    public laberinto() {
+    public Laberinto() {
     }
 
 }
