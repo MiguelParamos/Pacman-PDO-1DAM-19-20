@@ -92,6 +92,7 @@ public class Fruta extends Elemento {
      * Funcion que hace desaparecer a la fruta
      */
     public void desaparecer(){
-       
+       this.posY=-1;
+       this.posX=-1;
     }
 }
