@@ -54,15 +54,24 @@ public class Bolita extends Elemento {
      * @return
      */
     public int sumarPuntos() {
-        //TODO implementar la función
-        return 0;
+       int puntos = 0;
+        if(tipoBola == false){
+            puntos++;
+        }
+        else{
+            puntos +=10;
+        }
+        
+        return puntos;
     }
 
     /**
      * Funcion que elimina las bolas del laberinto
      */
     public void desaparecer() {
-
+        setPosX(-1); 
+        setPosY(-1);
+        
     }
     
     /**
