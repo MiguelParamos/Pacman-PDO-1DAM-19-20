@@ -7,32 +7,29 @@ package principal;
 
 /**
  * Clase que define a las frutas del PacMan.
- *
- * @author Maria y Cristina
+ *@author Maria Sanchez
+ * @author  Cristina Carrillo
  */
 public class Fruta extends Elemento {
 
-    private int puntosFruta;
-    private int tiempoDesaparicion;
-    private String tipoFruta;
-    private int posX;//Cordenada X de la fruta
-    private int posY;//Cordenada Y de la fruta
+    private int puntosFruta; //puntos de las frutas
+    private int tiempoDesaparicion; //tiempo que desaparece la fruta del laberinto.
+    private String tipoFruta;//frutas del PacMan (cerezas) (representado con una estrella)
 
     /**
      * Constructor de la clase fruta con todos sus datos.
      *
      * @param puntosFruta Puntos que obtiene el PacMan cuando come una fruta
      * @param tiempoDesaparicion Tiempo que aparecen y desaparecen las frutas
-     * @param tipoFrutas tipo de fruta que aparece en el laberinto.
+     * @param tipoFruta tipo de fruta que aparece en el laberinto.
      * @param posX posicion x
      * @param posY posicion y 
      */
-    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) {   
+    public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) { 
+        super(posX,posY,'✰');
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
         this.tipoFruta = tipoFruta;
-        this.posX = posX;
-        this.posY = posY;
     }
 
     /**
@@ -89,7 +86,7 @@ public class Fruta extends Elemento {
      * @return int de puntos
      */
     public int darPuntos(){
-        return 0;
+        return 200; 
     }
     /**
      * Funcion que hace desaparecer a la fruta

@@ -11,8 +11,8 @@ package principal;
  * @author Jaime
  */
 public class Elemento {
-    private int posX;//Cordenada X de un elemento
-    private int posY;//Cordenada Y de un elemento
+    private int posX;//Coordenada X de un elemento
+    private int posY;//Coordenada Y de un elemento
     private char simbolo;//Simbolo del elemento
     
     /**
@@ -23,8 +23,8 @@ public class Elemento {
     }
     /**
      * Constructor
-     * @param x Cordenada X de la posicion
-     * @param y Cordenada Y de la posicion
+     * @param x Coordenada X de la posicion
+     * @param y Coordenada Y de la posicion
      * @param s  Simbolo
      */
     public Elemento(int x, int y,char s){
@@ -34,21 +34,21 @@ public class Elemento {
     }
 /**
  * getter posX
- * @return Posicion de la cordenada X
+ * @return Posicion de la coordenada X
  */
     public int getPosX() {
         return posX;
     }
 /**
  * Setter de posX
- * @param posX Cordenada X 
+ * @param posX Coordenada X 
  */
     public void setPosX(int posX) {
         this.posX = posX;
     }
 /**
  * Getter de posY
- * @return Posicion de la cordenada Y
+ * @return Posicion de la coordenada Y
  */
     public int getPosY() {
         return posY;
@@ -57,7 +57,7 @@ public class Elemento {
     
 /**
  * Setter de posY
- * @param posY Cordena Y
+ * @param posY Coordena Y
  */
     public void setPosY(int posY) {
         this.posY = posY;

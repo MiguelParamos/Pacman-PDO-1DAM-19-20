@@ -13,19 +13,18 @@ package principal;
  */
 public class Laberinto {
 
-    private String mapa[][]; // INICIALIZAMOS LA VARIABLE MAPA, EN LA CUAL APARECERAN LOS ELEMENTOS
+    private Elemento[][] mapa; // INICIALIZAMOS LA VARIABLE MAPA, EN LA CUAL APARECERAN LOS ELEMENTOS
     private Fantasma[] fantasma; // INICIALIZACION DEL NUMERO DE FANTASMAS INCLUIDOS EN EL JUEGO
     private Pacman pacman; // INICIALIZAMOS EL PERSONAJE PRINCIPAL DEL JUEGO
-    private Bolita[] bolita; // INICIALIZAMOS DE LOS PUNTOS DEL JUEGO
+    private Bolita[] bolitas; // INICIALIZAMOS DE LOS PUNTOS DEL JUEGO
     private Fruta fruta; // INICIALIZAMOS LOS PUNTOS EXTRA DEL JUEGO
-    
-    // AQUI EMPEZAMOS A INICIALIZAR LOS GETTERS AND SETTERS
 
-    public String[][] getMapa() {
+    // AQUI EMPEZAMOS A INICIALIZAR LOS GETTERS AND SETTERS
+    public Elemento[][] getMapa() {
         return mapa;
     }
 
-    public void setMapa(String[][] mapa) {
+    public void setMapa(Elemento[][] mapa) {
         this.mapa = mapa;
     }
 
@@ -46,11 +45,11 @@ public class Laberinto {
     }
 
     public Bolita[] getBolita() {
-        return bolita;
+        return bolitas;
     }
 
     public void setBolita(Bolita[] bolita) {
-        this.bolita = bolita;
+        this.bolitas = bolitas;
     }
 
     public Fruta getFruta() {
@@ -60,26 +59,23 @@ public class Laberinto {
     public void setFruta(Fruta fruta) {
         this.fruta = fruta;
     }
-    
+
     // ACABAMOS DE GENERAR GETTERS AND SETTERS
-    
-    
     // EJECUTAMOS LAS FUNCIONES
-    
     /*
     * @return devuelve el mapa con todos los elementos incluidos
-    */
+     */
     public void inicializarMapa() {
     }
-    
+
     /*
     * @return devuelve el final del juego
-    */
-    public boolean finJuego(){
+     */
+    public boolean finJuego() {
         return false;
     }
-    
-    public laberinto(){   
+
+    public laberinto() {
     }
 
 }
