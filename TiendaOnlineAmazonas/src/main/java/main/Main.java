@@ -7,7 +7,7 @@ package main;
 
 /**
  *
- * @author Ccenec
+ * @author Adrian mata
  */
 public class Main {
 
