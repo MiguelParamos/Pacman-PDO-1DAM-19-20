@@ -14,7 +14,9 @@ import java.util.Scanner;
  */
 public class Main {
 
-    /**
+    /** 
+     * El Main del programa(solo da a elegir opciones de momento)
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {
