@@ -159,10 +159,13 @@ public class Pacman extends Personaje{
         b.desaparecer();
     }
         /**
-     * Funcion para cuando Pacman se come una fruta
+     * Funcion para cuando Pacman se come una fruta,esto suma a  la puntacion  200 puntos y además 
+     * hace que la fruta desaparezca
+     * @param fr es la fruta que se come el pacman (de tipo Fruta)
      */
-    public void chocarConFruta(){
-        
+    public void chocarConFruta(Fruta fr){
+         this.puntuacion+=fr.darPuntos();
+         fr.desaparecer();
     }
         /**
      * Sonido que hace Pacman
