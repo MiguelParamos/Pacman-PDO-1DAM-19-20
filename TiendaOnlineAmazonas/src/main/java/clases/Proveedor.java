@@ -13,24 +13,44 @@ public class Proveedor {
 
     private String nombre; //nombre del proveedor
     private String contacto; //contacto del proveedor
-    // private Productos[] productos;
+    private Productos[] producto;  //productos que se venden en la tienda online
     private int volumenMax; //volumen maximo de ventas
 
     /**
-     * Constructor de la clase proveedor con todos sus datos.
-     *
+     * Constructor de la clase proveedor con todos sus datos.     *       
      * @param nombre nombre del proveedor
      * @param contacto contacto del proveedor
+     * @param producto nombre de los productos que se venden en la tienda online. 
      * @param volumenMax volumen maximo de las ventas
-     */
-    public Proveedor(String nombre, String contacto, int volumenMax) {
+    */ 
+    public Proveedor(String nombre, String contacto, Productos[] producto, int volumenMax) {
         this.nombre = nombre;
         this.contacto = contacto;
+        this.producto = producto;
         this.volumenMax = volumenMax;
     }
+    
 
     /**
-     * getter de nombre
+     * getter de producto
+     * @return producto que se venden en la tienda online
+    */ 
+    public Productos[] getProducto() {
+        return producto;
+    }
+
+    
+   /**
+    * setter de producto
+    * @param producto producto que se venden en le tienda online
+   */ 
+    public void setProducto(Productos[] producto) {
+        this.producto = producto;
+    }
+
+        
+    /**
+     * getter de nombre 
      *
      * @return nombre del proveedor
      */
