@@ -6,6 +6,9 @@
 
 package clases;
 
+import java.io.*;
+
+
 /**
  * Clase que representa a fantasma
  * @author salva
@@ -171,15 +174,22 @@ public class Fantasma extends Personaje {
     /**
      * Función que representa el sonido del movimiento del Fantasma
      */
-    public void sonidoMoverse() {
+    public void sonidoMoverse() throws FileNotFoundException {
+        String sonido="C:\\Users\\Usuario\\Desktop\\1.mp3";
+        InputStream direccion= new FileInputStream(sonido);
+       //Player rep= new Player(direccion)
+       //rep.play();
 
     }
 
     /**
      * Función que representa el sonido cuando muere el Fantasma
      */
-    public void sonidoMorir() {
-
+    public void sonidoMorir() throws FileNotFoundException {
+        String sonido="C:\\Users\\Usuario\\Desktop\\3.mp3";
+        InputStream direccion= new FileInputStream(sonido);
+       //Player rep= new Player(direccion)
+       //rep.play();
     }
    
     /**
