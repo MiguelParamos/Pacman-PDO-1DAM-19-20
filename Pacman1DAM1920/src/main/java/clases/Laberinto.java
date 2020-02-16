@@ -72,7 +72,7 @@ public class Laberinto {
     * @return devuelve el final del juego
      */
     public boolean finJuego() {
-        if(numeroVidas=0||bolitas=0){
+        if(this.numeroVidas==0||this.bolitas==0){
             return true;
         }else{
             return false;
