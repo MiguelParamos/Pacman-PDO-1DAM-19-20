@@ -16,6 +16,7 @@ public class Pacman extends Personaje{
     private byte direccionQueMira;      //Direccion a la que mira Pacman 2 Abajo 4 Izquierda 6 derecha 8 Arriba
     private int numeroVidas;        //Numero de vidas de Pacman 
     private int puntuacion;     //Puntos que consigue Pacman 0
+    private byte turnosPowerup = 0; //turnosPowerup definido a 0 por defecto
     
     
     
@@ -68,6 +69,7 @@ public class Pacman extends Personaje{
     public void setPuntuacion(int p){
         this.puntuacion = p;
     }
+
     
     
     //FUNCIONES
@@ -107,12 +109,14 @@ public class Pacman extends Personaje{
      * @param x
      * @param y
      * @param s 
+     * @param turnosPowerup
      */
-    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s){
+    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s, byte turnosPowerup){
         super(estaVivo, velocidad, x, y, s);
         this.direccionQueMira = direccionQueMira;
         this.numeroVidas = numeroVidas;    
         this.puntuacion = puntuacion; 
+        this.turnosPowerup = turnosPowerup;
     }
     /**
      *  Funcion para el movimiento de Pacman
@@ -123,10 +127,11 @@ public class Pacman extends Personaje{
      * @param direccion por donde se mueve Pacman
      */
     public void moverse(Pacman p,Laberinto l) {
-            //Falta el movimiento y el power UP
+            //Falta el movimiento
         /*
             if(p.getPosX()==b.getPosX()&& p.getPosY()==b.getPosY()){ //CUANDO ENCUENTRA UNA BOLITA
-                p.chocarConBolita(b);           
+                p.chocarConBolita(b);
+                p.powerUp();
             }
         
             if(p.getPosX()==f.getPosX()&& p.getPosY()==f.getPosY()){ //CUANDO ENCUENTRA UN FANTASMA
@@ -136,7 +141,8 @@ public class Pacman extends Personaje{
                if(p.getPosX()==fr.getPosX()&& p.getPosY()==fr.getPosY()){ //CUANDO ENCUENTRA UNA FRUTA
                 p.chocarConFruta();   
                 p.sumarPuntos(puntuacion);
-            } */
+            }
+        */
     }
     
     /**
@@ -186,9 +192,10 @@ public class Pacman extends Personaje{
     /**
      * Funcion al conseguir una bolita con poderes
      */
-    public void powerUp(){
-        
+    public byte powerUp(){
+        return turnosPowerup = 5;
     }
+
     /**
      *  Funcion para contar los puntos
      * @param cantidad numero de puntos que consigue Pacman
@@ -196,4 +203,6 @@ public class Pacman extends Personaje{
     public void sumarPuntos(int cantidad){
         this.puntuacion+=cantidad;
     }
+    
+    
 }
