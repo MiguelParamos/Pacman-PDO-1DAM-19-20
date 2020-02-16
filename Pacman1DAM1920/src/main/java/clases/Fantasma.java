@@ -180,16 +180,36 @@ public class Fantasma extends Personaje {
         Random rand = new Random();
 
         int[] array = new int[2];
-        
+
+        if (p.getPosX() != this.getPosX() && p.getPosY() != this.getPosY()) {       //Si la posición del fantasma y el pacman es distinta
+            if (azul && l.getMapa() != null) {          //Si azul es true y la casilla del mapa es distinta de null
+
+                this.setPosX(rand.nextInt());           
+                this.setPosY(rand.nextInt());           
+
+                array[0] = this.getPosX();
+                array[1] = this.getPosY();
+
+            } else {
+                if (l.getMapa() != null) {              //Si la casilla del mapa es distinta de null
+                    this.setPosX(rand.nextInt((p.getPosX() - this.getPosX()) + 1));         
+                    this.setPosY(rand.nextInt((p.getPosX() - this.getPosX()) + 1));         
+
+                    array[0] = this.getPosX();
+                    array[1] = this.getPosY();
+                }
+            }
+        }
+
         if (azul) {
-            if (this.getPosX() != p.getPosX() && l.getMapa() != null) {
-                this.setPosX(rand.nextInt((p.getPosX() + 2) + 1));
-                this.setPosY(rand.nextInt((this.getPosY() + 2) + 1));
+            if (this.getPosX() != p.getPosX() && l.getMapa() != null) { //Si fantasma y pacman tienen posición distinta y la casilla del mapa no tiene null
+                this.setPosX(rand.nextInt((this.getPosX() + p.getPosX()) + 1));
+                this.setPosY(rand.nextInt((this.getPosY() + p.getPosY()) + 1));
                 array[0] = this.getPosX();
                 array[1] = this.getPosY();
             }
         } else {
-            if (this.getPosX() != p.getPosX() && l.getMapa() != null) {
+            if (this.getPosX() != p.getPosX() && l.getMapa() != null) {  //Si fantasma y pacman tienen posición distinta y la casilla del mapa no tiene null
                 this.setPosX(rand.nextInt((p.getPosX() - this.getPosX()) + 1));
                 this.setPosY(rand.nextInt((p.getPosY() - this.getPosY()) + 1));
                 array[0] = this.getPosX();
