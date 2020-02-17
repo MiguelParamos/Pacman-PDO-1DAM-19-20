@@ -118,7 +118,6 @@ public class Cliente {
      * Esta funcion añade los productos al carrito.
      */
     public String[] añadirAlCarrito(){
-        
     }
     
     /**
@@ -150,7 +149,7 @@ public class Cliente {
      * He optado por un byte en lugar de un float, ya que las reseñas suelen ser de 1 a 5.
      */
     public byte añadirValoracion(){
-        return valoracion;
+        return 0;
         
     }
     
@@ -167,7 +166,7 @@ public class Cliente {
     //Este es el constructor
     
     /**
-     * Este es el constructor para la clase cliente
+     * Este es el constructor de la clase cliente.
      * @param nombreCliente Hace referencia al nombre del cliente
      * @param apellidoCliente Hace referencia al apellido del cliente
      * @param edadCliente Hace referencia a la edad del cliente

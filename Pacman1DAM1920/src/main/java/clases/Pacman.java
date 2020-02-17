@@ -160,6 +160,9 @@ public class Pacman extends Personaje{
     public void chocarConBolita(Bolita b){
         this.puntuacion+=b.sumarPuntos();
         b.desaparecer();
+        if(b='●'){
+            powerUp();
+        }
     }
         /**
      * Funcion para cuando Pacman se come una fruta,esto suma a  la puntacion  200 puntos y además 
