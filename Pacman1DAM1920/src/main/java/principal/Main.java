@@ -6,6 +6,7 @@
 package principal;
 
 import clases.Laberinto;
+import java.util.Scanner;
 
 /**
  * Clase principal del pacman de 1ºDAM 19-20
@@ -26,12 +27,31 @@ public class Main {
         //Fin de zona de pruebas de Antonio Calvente
         
         short turno=0;
-        
+        char direccion;
+        Scanner sc=new Scanner(System.in);
         do{
             turno++;
-            //Zona de escritura de Francisco España
-            
-            //Fin de zona de escritura de Francisco España
+            System.out.println("Turno "+turno+"\n--------------\n");
+            System.out.println(laberinto);
+            System.out.println("Dime dirección para moverte (w,a,s,d)");
+            direccion=sc.nextLine().charAt(0);
+            switch(direccion){
+                case 'w':
+                    //laberinto.getPacman().moverse(p, laberinto);
+                break;
+                case 'a':
+                    
+                    break;
+                case 's':
+                    
+                    break;
+                case 'd':
+                    
+                    break;
+                default:
+                    System.out.println("Direccion no valida");
+                    break;
+            }
             
         }while(!laberinto.finJuego());
     }

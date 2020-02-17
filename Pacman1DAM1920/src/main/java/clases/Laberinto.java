@@ -66,13 +66,16 @@ public class Laberinto {
     * @return devuelve el mapa con todos los elementos incluidos
      */
     public void inicializarMapa() {
+        this.mapa=new Elemento[20][20];
     }
 
     /*
     * @return devuelve el final del juego
      */
     public boolean finJuego() {
-        if(getnumeroVidas==0||this.bolitas==0){
+       
+       if( this.pacman.getNumeroVidas()==0
+               ||this.bolitas.length==0){
             return true;
         }else{
             return false;
@@ -80,6 +83,7 @@ public class Laberinto {
     }
 
     public Laberinto() {
+        
     }
 
 }

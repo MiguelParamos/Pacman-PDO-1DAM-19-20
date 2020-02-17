@@ -6,7 +6,14 @@
 package clases;
 
 import java.io.*;
+import static java.lang.System.in;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  * Clase que representa a fantasma
@@ -208,11 +215,11 @@ public class Fantasma extends Personaje {
      * Función que representa el sonido del movimiento del Fantasma
      */
     public void sonidoMoverse() throws FileNotFoundException {
-        String sonido = "C:\\Users\\Usuario\\Desktop\\1.mp3";
-        InputStream direccion = new FileInputStream(sonido);
-        //Player rep= new Player(direccion)
-        //rep.play();
-
+        com.sun.javafx.application.PlatformImpl.startup(()->{});
+        String bip = "./fantasma.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 
     /**
