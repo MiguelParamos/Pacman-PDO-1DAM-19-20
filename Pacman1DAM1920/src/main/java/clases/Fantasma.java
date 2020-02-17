@@ -62,10 +62,10 @@ public class Fantasma extends Personaje {
         //Primer parámetro true porque un fantasma siempre empieza vivo
         //Segundo parámetro 1 porque fantasma siempre empieza con velocidad 1
         //No puedo poner nada por encima de super, y tengo que decidir la posición, por tanto por ahora la voy a poner a -1,-1 , y luego la cambio con los setter
-        super(true, 1, -1, -1, '▲');
+        super(true, 1, -1, -1, 'F');
         this.azul = false;
         this.color = color;
-        this.simboloAzul = '▼';
+        this.simboloAzul = 'f';
         this.tiempoEspera = 10;
         switch (color) {
             case 'r': //Rojo
