@@ -201,22 +201,6 @@ public class Fantasma extends Personaje {
             }
         }
 
-        if (azul) {
-            if (this.getPosX() != p.getPosX() && l.getMapa() != null) { //Si fantasma y pacman tienen posición distinta y la casilla del mapa no tiene null
-                this.setPosX(rand.nextInt((this.getPosX() + p.getPosX()) + 1));
-                this.setPosY(rand.nextInt((this.getPosY() + p.getPosY()) + 1));
-                array[0] = this.getPosX();
-                array[1] = this.getPosY();
-            }
-        } else {
-            if (this.getPosX() != p.getPosX() && l.getMapa() != null) {  //Si fantasma y pacman tienen posición distinta y la casilla del mapa no tiene null
-                this.setPosX(rand.nextInt((p.getPosX() - this.getPosX()) + 1));
-                this.setPosY(rand.nextInt((p.getPosY() - this.getPosY()) + 1));
-                array[0] = this.getPosX();
-                array[1] = this.getPosY();
-            }
-        }
-
         return array;
     }
 
