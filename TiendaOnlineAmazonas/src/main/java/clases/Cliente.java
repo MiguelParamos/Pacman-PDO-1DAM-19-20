@@ -167,7 +167,7 @@ public class Cliente {
     //Este es el constructor
     
     /**
-     * 
+     * Este es el constructor para la clase cliente
      * @param nombreCliente Hace referencia al nombre del cliente
      * @param apellidoCliente Hace referencia al apellido del cliente
      * @param edadCliente Hace referencia a la edad del cliente
