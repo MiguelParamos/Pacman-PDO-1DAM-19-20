@@ -190,7 +190,7 @@ public class Fantasma extends Personaje {
                 array[0] = this.getPosX();
                 array[1] = this.getPosY();
 
-            } else {
+            } else { //Si azul es false
                 if (l.getMapa() != null) {              //Si la casilla del mapa es distinta de null
                     this.setPosX(rand.nextInt((p.getPosX() - this.getPosX()) + 1));         
                     this.setPosY(rand.nextInt((p.getPosX() - this.getPosX()) + 1));         
