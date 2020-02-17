@@ -118,7 +118,6 @@ public class Cliente {
      * Esta funcion añade los productos al carrito.
      */
     public String[] añadirAlCarrito(){
-        
     }
     
     /**
@@ -150,7 +149,7 @@ public class Cliente {
      * He optado por un byte en lugar de un float, ya que las reseñas suelen ser de 1 a 5.
      */
     public byte añadirValoracion(){
-        return valoracion;
+        return 0;
         
     }
     
