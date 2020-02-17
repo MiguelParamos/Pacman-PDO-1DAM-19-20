@@ -226,10 +226,11 @@ public class Fantasma extends Personaje {
      * Función que representa el sonido cuando muere el Fantasma
      */
     public void sonidoMorir() throws FileNotFoundException {
-        String sonido = "C:\\Users\\Usuario\\Desktop\\3.mp3";
-        InputStream direccion = new FileInputStream(sonido);
-        //Player rep= new Player(direccion)
-        //rep.play();
+        com.sun.javafx.application.PlatformImpl.startup(()->{});
+        String bip = "./morirFantasma.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 
     /**
