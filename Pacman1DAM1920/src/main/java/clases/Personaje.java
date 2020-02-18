@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package clases;
 
 /**
  *Clase que define caracteristicas compartidas de los personajes del juego
@@ -12,7 +12,7 @@ package principal;
  */
 public class Personaje extends Elemento{
     
-    private boolean estaVivo;//Define si esta vivo o muerto el personaje
+    private boolean estaVivo;//Define si esta vivo (true) o muerto (false) el personaje
     private int velocidad;//Define la velocidad de movimiento de los personajes
 
   

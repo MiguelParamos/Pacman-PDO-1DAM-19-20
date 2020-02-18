@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package clases;
 
 import java.util.Scanner;
 
@@ -14,8 +14,9 @@ import java.util.Scanner;
  */
 public class Pacman extends Personaje{
     private byte direccionQueMira;      //Direccion a la que mira Pacman 2 Abajo 4 Izquierda 6 derecha 8 Arriba
-    private int numeroVidas = 3;        //Numero de vidas de Pacman 
-    private int puntuacion = 0;     //Puntos que consigue Pacman 0
+    private int numeroVidas;        //Numero de vidas de Pacman 
+    private int puntuacion;     //Puntos que consigue Pacman 0
+    private byte turnosPowerup = 0; //turnosPowerup definido a 0 por defecto
     
     
     
@@ -68,6 +69,7 @@ public class Pacman extends Personaje{
     public void setPuntuacion(int p){
         this.puntuacion = p;
     }
+
     
     
     //FUNCIONES
@@ -79,16 +81,13 @@ public class Pacman extends Personaje{
      * @param posY posicion Y del pacman
      * @param pacman char que representa al pacman
      */
-    public Pacman (int posX, int posY){
-        //Genera la posicion aleatoria X
-        int posicionIncialX = Math.random()*getMapa().length();
-        //Genera la posicion aleatoria Y
-        int posicionIncialY = Math.random()*getMapa()[0].length();
-    }
-    /**
-     *  Constructor de Pacman
-     */
-    public void Pacman(){
+    public Pacman(){
+        //le pongo una posición predeterminada, he escogido 9,17 como podría haber escogido cualquier otra.
+        super(true,1,9,17,'©');
+        this.numeroVidas=3;
+        this.puntuacion=0;
+    } 
+    
         
         
         
@@ -110,12 +109,14 @@ public class Pacman extends Personaje{
      * @param x
      * @param y
      * @param s 
+     * @param turnosPowerup
      */
-    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s){
+    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s, byte turnosPowerup){
         super(estaVivo, velocidad, x, y, s);
         this.direccionQueMira = direccionQueMira;
         this.numeroVidas = numeroVidas;    
         this.puntuacion = puntuacion; 
+        this.turnosPowerup = turnosPowerup;
     }
     /**
      *  Funcion para el movimiento de Pacman
@@ -125,13 +126,12 @@ public class Pacman extends Personaje{
      * @param fr fruta
      * @param direccion por donde se mueve Pacman
      */
-    public void moverse(Pacman p,Fantasma f, Bolita b,Fruta fr, byte direccion) {
-
-            
-            //Falta el movimiento y el power UP
-        
+    public void moverse(Pacman p,Laberinto l) {
+            //Falta el movimiento
+        /*
             if(p.getPosX()==b.getPosX()&& p.getPosY()==b.getPosY()){ //CUANDO ENCUENTRA UNA BOLITA
-                p.chocarConBolita();           
+                p.chocarConBolita(b);
+                p.powerUp();
             }
         
             if(p.getPosX()==f.getPosX()&& p.getPosY()==f.getPosY()){ //CUANDO ENCUENTRA UN FANTASMA
@@ -142,6 +142,7 @@ public class Pacman extends Personaje{
                 p.chocarConFruta();   
                 p.sumarPuntos(puntuacion);
             }
+        */
     }
     
     /**
@@ -164,10 +165,13 @@ public class Pacman extends Personaje{
         b.desaparecer();
     }
         /**
-     * Funcion para cuando Pacman se come una fruta
+     * Funcion para cuando Pacman se come una fruta,esto suma a  la puntacion  200 puntos y además 
+     * hace que la fruta desaparezca
+     * @param fr es la fruta que se come el pacman (de tipo Fruta)
      */
-    public void chocarConFruta(){
-        
+    public void chocarConFruta(Fruta fr){
+         this.puntuacion+=fr.darPuntos();
+         fr.desaparecer();
     }
         /**
      * Sonido que hace Pacman
@@ -181,21 +185,24 @@ public class Pacman extends Personaje{
      */
     public void morir(){
         this.numeroVidas--;
-        this.posX = this.posicionInicialX;
-        this.posY = this.posicionInicialY;
+        this.setPosX(9);
+        this.setPosY(17);
     }
     
     /**
      * Funcion al conseguir una bolita con poderes
      */
-    public void powerUp(){
-        
+    public byte powerUp(){
+        return turnosPowerup = 5;
     }
+
     /**
      *  Funcion para contar los puntos
      * @param cantidad numero de puntos que consigue Pacman
      */
     public void sumarPuntos(int cantidad){
-        
+        this.puntuacion+=cantidad;
     }
+    
+    
 }

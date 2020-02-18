@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package clases;
 
 /**
  * Clase que representa al laberinto del Pacman
@@ -72,10 +72,14 @@ public class Laberinto {
     * @return devuelve el final del juego
      */
     public boolean finJuego() {
-        return false;
+        if(getnumeroVidas==0||this.bolitas==0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public laberinto() {
+    public Laberinto() {
     }
 
 }
