@@ -7,7 +7,7 @@ package clases;
 
 /**
  *
- * @author fsty
+ * @author javi R
  */
 public class Carrito {
 
