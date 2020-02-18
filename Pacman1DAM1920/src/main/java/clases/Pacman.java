@@ -76,14 +76,11 @@ public class Pacman extends Personaje{
     
     /**
      *  Constructor de Pacman con sus posicion generada aleatoriamente
-     *  
-     * @param posX posicion X del pacman 
-     * @param posY posicion Y del pacman
-     * @param pacman char que representa al pacman
+     *  Lo coloca por defecto en la posición 9,17
      */
     public Pacman(){
         //le pongo una posición predeterminada, he escogido 9,17 como podría haber escogido cualquier otra.
-        super(true,1,9,17,'©');
+        super(true,1,9,17,'P');
         this.numeroVidas=3;
         this.puntuacion=0;
     } 
@@ -163,6 +160,9 @@ public class Pacman extends Personaje{
     public void chocarConBolita(Bolita b){
         this.puntuacion+=b.sumarPuntos();
         b.desaparecer();
+        if(b='●'){
+            powerUp();
+        }
     }
         /**
      * Funcion para cuando Pacman se come una fruta,esto suma a  la puntacion  200 puntos y además 

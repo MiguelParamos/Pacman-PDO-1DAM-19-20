@@ -6,7 +6,14 @@
 package clases;
 
 import java.io.*;
+import static java.lang.System.in;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  * Clase que representa a fantasma
@@ -55,10 +62,10 @@ public class Fantasma extends Personaje {
         //Primer parámetro true porque un fantasma siempre empieza vivo
         //Segundo parámetro 1 porque fantasma siempre empieza con velocidad 1
         //No puedo poner nada por encima de super, y tengo que decidir la posición, por tanto por ahora la voy a poner a -1,-1 , y luego la cambio con los setter
-        super(true, 1, -1, -1, '▲');
+        super(true, 1, -1, -1, 'F');
         this.azul = false;
         this.color = color;
-        this.simboloAzul = '▼';
+        this.simboloAzul = 'f';
         this.tiempoEspera = 10;
         switch (color) {
             case 'r': //Rojo
@@ -208,21 +215,22 @@ public class Fantasma extends Personaje {
      * Función que representa el sonido del movimiento del Fantasma
      */
     public void sonidoMoverse() throws FileNotFoundException {
-        String sonido = "C:\\Users\\Usuario\\Desktop\\1.mp3";
-        InputStream direccion = new FileInputStream(sonido);
-        //Player rep= new Player(direccion)
-        //rep.play();
-
+        com.sun.javafx.application.PlatformImpl.startup(()->{});
+        String bip = "./fantasma.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 
     /**
      * Función que representa el sonido cuando muere el Fantasma
      */
     public void sonidoMorir() throws FileNotFoundException {
-        String sonido = "C:\\Users\\Usuario\\Desktop\\3.mp3";
-        InputStream direccion = new FileInputStream(sonido);
-        //Player rep= new Player(direccion)
-        //rep.play();
+        com.sun.javafx.application.PlatformImpl.startup(()->{});
+        String bip = "./morirFantasma.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 
     /**
