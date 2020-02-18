@@ -6,19 +6,21 @@
 package clases;
 
 /**
- *
+ * Clase que almacena los productos elegidos por el cliente para su posterior compra
  * @author javi R
  */
 public class Carrito {
+    private Producto productos[]; //Array de productos de la clase Producto
+    private int cantidad; //Cantidad de productos
 
-    private Producto[] producto; //Array de la clase Producto, en el cuál, se irán agregando los diferentes productos
-    private int[] cantidad; //Array de tipo entero de la cantidad de productos que se elijan
-
+    
     /**
      * Constructor de todos los atributos de Carrito
+     * @param productos que hay en el carrito
+     * @param cantidad que hay en el carrito
      */
-    public Carrito(Producto[] producto, int[] cantidad) {
-        this.producto = producto;
+    public Carrito(Producto[] productos, int cantidad) {
+        this.productos = productos;
         this.cantidad = cantidad;
     }
 
@@ -32,51 +34,49 @@ public class Carrito {
     //Setters
     /**
      * setter de Producto
-     *
-     * @param producto Tipo de productos que han sido seleccionados y guardados
+     * @param productos Tipo de productos que han sido seleccionados y guardados
      * para su compra
      */
-    public void setProducto(Producto[] producto) {
-        this.producto = producto;
+    public void setProductos(Producto[] productos) {
+        this.productos = productos;
     }
 
     /**
      * Setter de cantidad
-     *
+     * 
      * @param cantidad de cada producto que hay agregado en el Carrito
      */
-    public void setCantidad(int[] cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
     //Getters
     /**
      * Getter de Producto
-     *
-     * @return Producto guardado en el Carrito
+     * @return Productos guardado en el Carrito
      */
-    public Producto[] getProducto() {
-        return producto;
+    public Producto[] getProductos() {
+        return productos;
     }
 
     /**
      * Getter de Cantidad
-     *
+     * 
      * @return cantidad de productos en la lista del Carrito
      */
-    public int[] getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-//    /**
-//     * Función que finaliza la compra (si es true) de los productos almacenados
-//     * en el Carrito
-//     *
-//     * @param compraFin
-//     * @return
-//     */
-//    public boolean finalizarCompra(boolean compraFin) {
-//        return false;
-//
-//    }
+    /**
+     * Función que finaliza la compra (si es true) de los productos almacenados
+     * en el Carrito
+     *
+     * @param compraFin
+     * @return true al finalizar la compra
+     */
+    public boolean finalizarCompra(boolean compraFin) {
+        return true;
+
+    }
 }
