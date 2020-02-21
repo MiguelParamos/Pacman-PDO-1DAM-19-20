@@ -13,7 +13,7 @@ import constantes.Constantes;
  * @author Alvaro Lopez
  * @author Alvaro Nuñez
  */
-public class Laberinto {
+public final class Laberinto {
 
     private Elemento[][] mapa; // INICIALIZAMOS LA VARIABLE MAPA, EN LA CUAL APARECERAN LOS ELEMENTOS
     private Fantasma[] fantasma; // INICIALIZACION DEL NUMERO DE FANTASMAS INCLUIDOS EN EL JUEGO

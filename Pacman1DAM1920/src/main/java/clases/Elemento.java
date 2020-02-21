@@ -10,10 +10,10 @@ package clases;
  * @author Francisco
  * @author Jaime
  */
-public class Elemento {
+public abstract class Elemento {
     private int posX;//Coordenada X de un elemento
     private int posY;//Coordenada Y de un elemento
-    private char simbolo;//Simbolo del elemento
+    private String simbolo;//Simbolo del elemento
     
     /**
      * Constructor elemento
@@ -25,9 +25,9 @@ public class Elemento {
      * Constructor
      * @param x Coordenada X de la posicion
      * @param y Coordenada Y de la posicion
-     * @param s  Simbolo
+     * @param s  Simbolo incluyendo los caracteres especiales del color
      */
-    public Elemento(int x, int y,char s){
+    public Elemento(int x, int y,String s){
         this.posX=x;
         this.posY=y;
         this.simbolo=s;
@@ -69,16 +69,16 @@ public class Elemento {
 
 * @return Un char que representa el simbolo
  */
-    public char getSimbolo() {
+    public String getSimbolo() {
         return simbolo;
     }
 
     
     /**
      * Setter de simbolo
-     * @param simbolo Simbolo del elemento
+     * @param simbolo Simbolo del elemento incluyendo caracteres especiales de color
      */
-    public void setSimbolo(char simbolo) {
+    public void setSimbolo(String simbolo) {
         this.simbolo = simbolo;
     }
     

@@ -12,7 +12,7 @@ package clases;
  * @author Adrian
  * @author Javier
  */
-public class Bolita extends Elemento {
+public final class Bolita extends Elemento {
 
     private boolean tipoBola;//Variable para saber el tipo de bola: true-> grande, false->pequeña
 
@@ -42,7 +42,7 @@ public class Bolita extends Elemento {
      * @param tipoBola Recibe por parámetros un boolean:true-> grande, false->pequeña
      */
     public Bolita(int x, int y, boolean tipoBola) {
-        super(x, y, (tipoBola?'O':'o'));//Simbolo bola grande O
+        super(x, y, (tipoBola?"O":"o"));//Simbolo bola grande O
         this.tipoBola = tipoBola;
     }
 

@@ -5,6 +5,7 @@
  */
 package clases;
 
+import constantes.Constantes;
 import java.io.*;
 import static java.lang.System.in;
 import java.util.Random;
@@ -21,14 +22,15 @@ import sun.audio.AudioStream;
  * @author salva
  * @author hgonz
  */
-public class Fantasma extends Personaje {
+public final class Fantasma extends Personaje {
 
     //VARIABLES INTERNAS
     private boolean azul;                                   //Color cuando el Pacman se come una bolita grande
     private char color;                                      //Color del fantasma, hay 4 colores ,puede ser: r->rojo, a->amarillo, p->rosa, b->azul
     private final int tiempoEspera;          //Tiempo que espera el fantasma después de morir   El tiempo de espera es 10 int tiempoEspera=10;
     private char simboloAzul; //simbolo que representa el simbolo cuando huye del pacman
-
+    private boolean meTocaMovermeEnAzul; //Siempre que se convierte en azul, no se mueve
+    
     //CONSTRUCTORES
     /**
      * Constructor de la clase fantasma con todos sus datos.
@@ -43,12 +45,13 @@ public class Fantasma extends Personaje {
      * @param posY posición y del fantasma
      * @param simbolo simbolo que representa al fantasma
      */
-    public Fantasma(int tiempoEspera, boolean azul, char color, boolean estaVivo, int velocidad, int posX, int posY, char simbolo) {
+    public Fantasma(int tiempoEspera, boolean azul, char color, boolean estaVivo, int velocidad, int posX, int posY, String simbolo) {
         super(estaVivo, velocidad, posX, posY, simbolo);
         this.azul = azul;
         this.color = color;
         this.simboloAzul = '▼';
         this.tiempoEspera = tiempoEspera;
+        this.meTocaMovermeEnAzul=false;
     }
 
     /**
@@ -62,7 +65,8 @@ public class Fantasma extends Personaje {
         //Primer parámetro true porque un fantasma siempre empieza vivo
         //Segundo parámetro 1 porque fantasma siempre empieza con velocidad 1
         //No puedo poner nada por encima de super, y tengo que decidir la posición, por tanto por ahora la voy a poner a -1,-1 , y luego la cambio con los setter
-        super(true, 1, -1, -1, 'F');
+        //Tampoco puedo establecer color aquí porque no se cual es, y no puedo escribir nada por encima de super. Lo modificaré más tarde
+        super(true, 1, -1, -1, "F");
         this.azul = false;
         this.color = color;
         this.simboloAzul = 'f';
@@ -71,23 +75,28 @@ public class Fantasma extends Personaje {
             case 'r': //Rojo
                 this.setPosX(9);
                 this.setPosY(9);
+                this.setSimbolo(Constantes.rojoFantasma+"F"+Constantes.reset);
                 break;
             case 'y': //Amarillo
                 this.setPosX(9);
                 this.setPosY(10);
+                this.setSimbolo(Constantes.amarilloFantasma+"F"+Constantes.reset);
                 break;
             case 'b': //Azul
                 this.setPosX(10);
                 this.setPosY(9);
+                this.setSimbolo(Constantes.azulFantasma+"F"+Constantes.reset);
                 break;
             case 'p': //pink
                 this.setPosX(10);
                 this.setPosY(10);
+                this.setSimbolo(Constantes.rosaFantasma+"F"+Constantes.reset);
                 break;
             default:
                 System.err.println("ERROR: COLOR INCORRECTO");
                 break;
         }
+        this.meTocaMovermeEnAzul=false;
 
     }
 
@@ -183,32 +192,61 @@ public class Fantasma extends Personaje {
      * @param p variable que representa al pacman
      * @return devuelve un vector con la posicion del fantasma
      */
-    public int[] moverse(Laberinto l, Pacman p) {
+    public void moverse(Laberinto l, Pacman p) {
+        
         Random rand = new Random();
-
-        int[] array = new int[2];
-
-        if (p.getPosX() != this.getPosX() && p.getPosY() != this.getPosY()) {       //Si la posición del fantasma y el pacman es distinta
-            if (azul && l.getMapa() != null) {          //Si azul es true y la casilla del mapa es distinta de null
-
-                this.setPosX(rand.nextInt());           
-                this.setPosY(rand.nextInt());           
-
-                array[0] = this.getPosX();
-                array[1] = this.getPosY();
-
-            } else { //Si azul es false
-                if (l.getMapa() != null) {              //Si la casilla del mapa es distinta de null
-                    this.setPosX(rand.nextInt((p.getPosX() - this.getPosX()) + 1));         
-                    this.setPosY(rand.nextInt((p.getPosX() - this.getPosX()) + 1));         
-
-                    array[0] = this.getPosX();
-                    array[1] = this.getPosY();
+        //MovimientosPosibles[0] es el movimiento posible arriba o abajo (posX)
+        //MovimientosPosibles[1] es el movimiento posible a izda o dcha (posY)
+        String[] movimientosPosibles=new String[2];
+        if(!this.azul){
+            //Si mi posición x es menor que la de pacman, me puedo mover abajo
+            if(p.getPosX()>this.getPosX()){
+                    //Compruebo en mapa que la casilla debajo mia no sea null (pared)
+                    if(l.getMapa()[this.getPosX()+1][this.getPosY()]!=null){
+                        //Si no es nula, puedo moverme abajo
+                        movimientosPosibles[0]="abajo";
+                    }
+            }else if(p.getPosX()<this.getPosY()){
+                //Movimiento contrario, hacia arriba si no es nulo
+                if(l.getMapa()[this.getPosX()-1][this.getPosY()]!=null){
+                        //Si no es nula, puedo moverme abajo
+                        movimientosPosibles[0]="arriba";
+                    }
+            }
+            //Lo mismo con la direccion horizontal
+            
+            //Una vez tenemos las dos direcciones
+            if(movimientosPosibles[0]==null&&movimientosPosibles[1]==null){
+                //No me puedo mover
+            }else if(movimientosPosibles[0]==null){
+                //Me tengo que mover en la dirección que diga movimientosPosibles[1]
+                if(movimientosPosibles[1].equals("Izquierda")){
+                    this.setPosX(this.getPosX()-1);
+                }else{
+                    this.setPosX(this.getPosX()+1);
                 }
+            }else if(movimientosPosibles[1]==null){
+                //Me tengo que mover en la dirección que diga movimientosPosibles[1]
+                if(movimientosPosibles[0].equals("arriba")){
+                    this.setPosY(this.getPosY()-1);
+                }else{
+                    this.setPosY(this.getPosY()+1);
+                }
+            }else{ //Ninguno de los dos es nulo, elijo el 0 o el 1 aleatoriamente
+                
+            }
+           
+        }else{ //Si el fantasma está azul
+            if(this.meTocaMovermeEnAzul==true){
+                //Moverse al contrario que en el otro caso
+                
+                //Cuando me mueva
+                this.meTocaMovermeEnAzul=false;
+            }else{
+                this.meTocaMovermeEnAzul=true;
             }
         }
-
-        return array;
+        
     }
 
     /**
@@ -225,6 +263,7 @@ public class Fantasma extends Personaje {
     /**
      * Función que representa el sonido cuando muere el Fantasma
      */
+    @Override
     public void sonidoMorir() throws FileNotFoundException {
         com.sun.javafx.application.PlatformImpl.startup(()->{});
         String bip = "./morirFantasma.mp3";

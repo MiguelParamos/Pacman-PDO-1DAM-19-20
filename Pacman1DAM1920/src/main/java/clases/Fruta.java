@@ -5,12 +5,14 @@
  */
 package clases;
 
+import constantes.Constantes;
+
 /**
  * Clase que define a las frutas del PacMan.
  *@author Maria Sanchez
  * @author  Cristina Carrillo
  */
-public class Fruta extends Elemento {
+public final class Fruta extends Elemento {
 
     private int puntosFruta; //puntos de las frutas
     private int tiempoDesaparicion; //tiempo que desaparece la fruta del laberinto.
@@ -26,7 +28,7 @@ public class Fruta extends Elemento {
      * @param posY posicion y 
      */
     public Fruta(int puntosFruta, int tiempoDesaparicion, String tipoFruta, int posX, int posY) { 
-        super(posX,posY,'✰');
+        super(posX,posY,Constantes.rojoFantasma+"C"+Constantes.reset);
         this.puntosFruta = puntosFruta;
         this.tiempoDesaparicion = tiempoDesaparicion;
         this.tipoFruta = tipoFruta;

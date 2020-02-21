@@ -5,18 +5,23 @@
  */
 package clases;
 
+import constantes.Constantes;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  *  Clase que representa a Pacman
  * @author Rafa Carrion
  * @author Kevin Rääk
  */
-public class Pacman extends Personaje{
+public final class Pacman extends Personaje{
     private byte direccionQueMira;      //Direccion a la que mira Pacman 2 Abajo 4 Izquierda 6 derecha 8 Arriba
     private int numeroVidas;        //Numero de vidas de Pacman 
     private int puntuacion;     //Puntos que consigue Pacman 0
-    private byte turnosPowerup = 0; //turnosPowerup definido a 0 por defecto
+    private byte turnosPowerup; //turnosPowerup definido a 0 por defecto
     
     
     
@@ -80,9 +85,10 @@ public class Pacman extends Personaje{
      */
     public Pacman(){
         //le pongo una posición predeterminada, he escogido 9,17 como podría haber escogido cualquier otra.
-        super(true,1,9,17,'P');
+        super(true,1,9,17,Constantes.amarilloPacman+"P"+Constantes.reset);
         this.numeroVidas=3;
         this.puntuacion=0;
+        this.turnosPowerup=0;
     } 
     
         
@@ -108,12 +114,12 @@ public class Pacman extends Personaje{
      * @param s 
      * @param turnosPowerup
      */
-    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, char s, byte turnosPowerup){
+    public Pacman(int numeroVidas,int puntuacion ,byte direccionQueMira, boolean estaVivo, int velocidad, int x, int y, String s){
         super(estaVivo, velocidad, x, y, s);
         this.direccionQueMira = direccionQueMira;
         this.numeroVidas = numeroVidas;    
         this.puntuacion = puntuacion; 
-        this.turnosPowerup = turnosPowerup;
+        this.turnosPowerup=0;
     }
     /**
      *  Funcion para el movimiento de Pacman
@@ -160,7 +166,7 @@ public class Pacman extends Personaje{
     public void chocarConBolita(Bolita b){
         this.puntuacion+=b.sumarPuntos();
         b.desaparecer();
-        if(b='●'){
+        if(b.getSimbolo().equals("O")){
             powerUp();
         }
     }
@@ -176,8 +182,12 @@ public class Pacman extends Personaje{
         /**
      * Sonido que hace Pacman
      */
-    public void sonidoPakuPaku(){
-        
+    public void sonidoMoverse()  throws FileNotFoundException {
+        com.sun.javafx.application.PlatformImpl.startup(()->{});
+        String bip = "./pacman.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
     /**
      * Funcion al morir Pacman resta una vida, y vuelve al pacman a la posición inicial
@@ -192,8 +202,12 @@ public class Pacman extends Personaje{
     /**
      * Funcion al conseguir una bolita con poderes
      */
-    public byte powerUp(){
-        return turnosPowerup = 5;
+    public void powerUp(){
+        turnosPowerup = 5;
+    }
+    
+    public void powerUp(byte turnos){
+         turnosPowerup=turnos;
     }
 
     /**
@@ -203,6 +217,17 @@ public class Pacman extends Personaje{
     public void sumarPuntos(int cantidad){
         this.puntuacion+=cantidad;
     }
+
+    @Override
+    public void sonidoMorir() throws FileNotFoundException {
+        com.sun.javafx.application.PlatformImpl.startup(()->{});
+        String bip = "./pacman-dies.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
+    }
+
+
     
     
 }

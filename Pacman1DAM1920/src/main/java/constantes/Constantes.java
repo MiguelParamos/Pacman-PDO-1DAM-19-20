@@ -14,7 +14,7 @@ public class Constantes {
     public final static String rojoFantasma="\u001B[41m";
     public final static String azulFantasma="\033[44m";
     public final static String azulFantasmaHuyendo="\033[4;35m";
-    public final static String rosaFantasma="\\033[0;105m";
+    public final static String rosaFantasma="\033[0;105m";
     public final static String amarilloFantasma="\033[0;93m";
     public final static String amarilloPacman="\033[1;93m";
     public final static String verdePared="\u001B[42m";
